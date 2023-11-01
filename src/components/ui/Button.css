@@ -1,0 +1,29 @@
+.btn {
+  display: flex;
+  height: 3rem;
+  top: 0px;
+  left: 0;
+  transform: translateX(-100%);
+  width: 100%;
+  position: absolute;
+  margin-top: 1rem;
+  z-index: 1;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(25, 134, 54, 0.8) 100%
+  );
+  transition: all 0.3s ease-out;
+  user-select: none;
+}
+
+.parent:hover .btn {
+  transition: all 0.3s ease-in;
+  transform: translateX(0%);
+}
+
+.btnSpan {
+  user-select: none;
+  cursor: pointer;
+}

@@ -1,11 +1,8 @@
 import './App.css';
+import Login from './components/Login/Login';
 
 function App() {
-  return (
-    <h1 className=' text-cyan-500 text-6xl flex justify-center '>
-      Hello World
-    </h1>
-  );
+  return <Login />;
 }
 
 export default App;
