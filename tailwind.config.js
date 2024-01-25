@@ -9,7 +9,6 @@ export default {
       maxWidth: {
         max: '1340px',
       },
-
       colors: {
         Red: '#f23115',
         DarkRed: '#AD220F',

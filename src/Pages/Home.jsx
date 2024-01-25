@@ -1,12 +1,13 @@
+import Banner from '../Features/Banner';
+import Filter from '../Features/Filter';
+import Meals from '../Features/Meals/Meals';
+
 export default function Home() {
   return (
     <>
-      <div>
-        banner
-        <img src='' alt='' />
-      </div>
-      <div>Filter</div>
-      <div>Popular Dishes</div>
+      <Banner />
+      <Filter />
+      <Meals />
     </>
   );
 }

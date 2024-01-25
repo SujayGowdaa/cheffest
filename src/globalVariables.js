@@ -1,2 +1,10 @@
 export const logo =
   'https://yyfjumfmwgnvczjziqao.supabase.co/storage/v1/object/public/logo/cheffest.png?t=2024-01-23T07%3A18%3A53.053Z';
+export const banner1 =
+  'https://yyfjumfmwgnvczjziqao.supabase.co/storage/v1/object/public/banners/banner1.jpg?t=2024-01-23T08%3A15%3A21.999Z';
+export const banner2 =
+  'https://yyfjumfmwgnvczjziqao.supabase.co/storage/v1/object/public/banners/banner2.jpg?t=2024-01-23T08%3A15%3A31.686Z';
+export const banner3 =
+  ' https://yyfjumfmwgnvczjziqao.supabase.co/storage/v1/object/public/banners/banner3.jpg?t=2024-01-23T08%3A15%3A42.600Z';
+export const banner4 =
+  'https://yyfjumfmwgnvczjziqao.supabase.co/storage/v1/object/public/banners/banner4.jpg?t=2024-01-23T08%3A15%3A59.621Z';
