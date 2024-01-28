@@ -21,7 +21,6 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding: 2px;
   background-color: #f3f3f2;
   outline: 1px solid #f3f3f2;
   transition: 0.4s;
@@ -39,18 +38,43 @@
   border-radius: 50%;
   background-color: #ffffff;
   border: 2px solid #f3f3f2;
+  left: 0;
+  margin: 2px;
   -webkit-box-shadow: -1px 2px 4px 1px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: -1px 2px 4px 1px rgba(0, 0, 0, 0.1);
   box-shadow: -1px 2px 4px 1px rgba(0, 0, 0, 0.3);
 }
 
-input:checked + .button::after {
+.veg::after {
+  transform: translateX(24px);
+}
+.button.veg {
+  background-color: #1eb648;
+}
+
+.nonVeg.button {
+  background-color: #f23115;
+}
+.nonVeg::after {
   transform: translateX(24px);
 }
 
-.red {
-  background-color: #f23115;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.green {
-  background-color: #1eb648;
+
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid #b3b3b3;
+  border-right-color: #fa9200;
+  animation: l2 1s infinite linear;
+}
+@keyframes l2 {
+  to {
+    transform: rotate(2turn);
+  }
 }

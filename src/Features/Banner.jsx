@@ -7,3 +7,4 @@ export default function Banner() {
     </div>
   );
 }
+// className = ' before:block before:h-[120px] before:w-full';

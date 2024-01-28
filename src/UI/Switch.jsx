@@ -1,19 +1,26 @@
 /* eslint-disable react/prop-types */
-import { useRef, useState } from 'react';
-
-export default function Switch({ color, title }) {
-  const [isOn, setIsOn] = useState(false);
-  const ref = useRef();
+export default function Switch({
+  title,
+  handleVegClick,
+  handleNonVegClick,
+  isBtnOn,
+}) {
+  function handleClick() {
+    if (title === "veg") {
+      handleVegClick();
+    } else {
+      handleNonVegClick();
+    }
+  }
 
   return (
-    <div className=" flex  flex-col gap-2">
-      <h3 className=" text-Grey text-sm font-medium">{title}</h3>
-      <input className=" hidden" type="checkbox" id={color} ref={ref} />
-      <label
-        className={`button ${isOn && color}`}
-        htmlFor={color}
-        onClick={() => setIsOn(!isOn)}
-      />
+    <div className=" flex flex-col gap-2" onClick={handleClick}>
+      <h3 className=" text-MediumGrey text-sm font-medium capitalize">
+        {title}
+      </h3>
+      <div
+        className={` button ${title === "veg" && isBtnOn.veg && "veg"} ${title === "nonVeg" && isBtnOn.nonVeg && "nonVeg"}`}
+      ></div>
     </div>
   );
 }

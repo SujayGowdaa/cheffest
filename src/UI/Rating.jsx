@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { HiMiniStar } from 'react-icons/hi2';
+import { HiMiniStar } from "react-icons/hi2";
 
 export default function Rating({ rating = 0 }) {
   const length = 5;
