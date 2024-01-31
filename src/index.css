@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .num-of-items {
   width: 1.2rem;
   height: 1.2rem;
@@ -31,7 +40,7 @@
 
 .button::after {
   transition: 0.2s;
-  content: '';
+  content: "";
   position: absolute;
   height: 20px;
   width: 20px;
@@ -73,8 +82,59 @@
   border-right-color: #fa9200;
   animation: l2 1s infinite linear;
 }
+
+.loader-small {
+  width: 23px;
+  height: 23px;
+  border: 6px solid #b3b3b3;
+  border-right-color: #fa9200;
+}
+
 @keyframes l2 {
   to {
     transform: rotate(2turn);
   }
+}
+
+.parent {
+  /* background-color: #fa9200; */
+  position: relative;
+  /* overflow: hidden; */
+}
+
+.open {
+  position: fixed;
+  top: 0;
+  right: 0;
+  transition: all 0.3s;
+}
+
+.close {
+  position: fixed;
+  top: 0;
+
+  transition: all 0.3s;
+}
+
+.buttonCheckout::before {
+  content: "";
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(25, 135, 54, 1) 100%
+  );
+  height: 60px;
+  position: absolute;
+  z-index: 20;
+  width: 200px;
+  transform: translateX(-150%);
+  transition: all 0.8s;
+  mix-blend-mode: screen;
+  visibility: hidden;
+}
+.buttonCheckout:hover::before {
+  visibility: visible;
+  transition: all 0.8s;
+  transform: translateX(150%);
 }

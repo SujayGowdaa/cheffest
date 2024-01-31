@@ -38,3 +38,79 @@ export async function getMealsRaw() {
   if (error) throw new Error(error.message);
   return data;
 }
+
+export async function getCart() {
+  const query = supabase.from("cart").select("*");
+  const { data, error } = await query;
+
+  if (error) throw new Error(error.message);
+  return data;
+}
+
+export async function addItem(newItem) {
+  const { data, error } = await supabase
+    .from("cart")
+    .insert([newItem])
+    .select();
+
+  if (error) throw new Error(error.message);
+
+  return data;
+}
+
+export async function removeItem(id) {
+  const { data, error } = await supabase.from("cart").delete().eq("id", id);
+
+  if (error) throw new Error(error.message);
+  return data;
+}
+
+export async function increaseItem(item) {
+  const { data, error: updateError } = await supabase
+    .from("cart")
+    .update({
+      quantity: item.quantity + 1,
+      totalPrice: item.totalPrice + item.price,
+    })
+    .eq("id", item.id);
+
+  if (updateError) throw new Error(updateError.message);
+
+  return data;
+}
+
+export async function decreaseItem(item) {
+  const query = supabase.from("cart");
+
+  const isQuantityOne = item.quantity === 1;
+
+  if (isQuantityOne) {
+    const { data, error: itemRemoveError } = await query
+      .delete()
+      .eq("id", item.id);
+
+    if (itemRemoveError) throw new Error(itemRemoveError.message);
+    return data;
+  }
+  const { data, error: updateError } = await query
+    .update({
+      quantity: item.quantity - 1,
+      totalPrice: item.totalPrice - item.price,
+    })
+    .eq("id", item.id);
+
+  if (updateError) throw new Error(updateError.message);
+  return data;
+}
+
+export async function clearCart() {
+  const { error } = await supabase
+    .from("cart")
+    .delete()
+    .eq("id", { value: [17, 18] });
+
+  if (error) {
+    throw new Error(error.message);
+  }
+  return null;
+}

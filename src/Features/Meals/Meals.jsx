@@ -12,14 +12,14 @@ export default function Meals() {
         <h1 className="mb-2 text-2xl font-bold text-DarkGrey">
           Popular Dishes
         </h1>
-        <p className=" text-Grey text-sm font-semibold">
+        <p className=" text-Grey text-sm font-medium">
           Meals found :{" "}
-          <span className=" text-xl text-Green">
+          <span className=" text-xl text-Green font-semibold">
             {mealLength < 10 ? `0${mealLength}` : mealLength}
           </span>
         </p>
       </div>
-      <div className="border-b-LighGrey flex flex-wrap justify-around gap-x-6 gap-y-16 border-b-2 ">
+      <div className=" flex flex-wrap justify-around gap-x-6 gap-y-16">
         {mealItems?.length === 0 ? <NoData /> : <MealItem />}
       </div>
     </div>
