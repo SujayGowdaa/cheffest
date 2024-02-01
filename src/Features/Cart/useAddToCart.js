@@ -5,9 +5,8 @@ export function useAddToCart() {
   const queryClient = useQueryClient();
 
   const { mutate: addItem, isPending } = useMutation({
-    mutationFn: addItemApi,
+    mutationFn: (newItem) => addItemApi(newItem),
     onSuccess: () => {
-      console.log("invalidate");
       queryClient.invalidateQueries("cart");
     },
     onError: (err) => alert(err.message),

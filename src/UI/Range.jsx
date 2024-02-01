@@ -57,7 +57,7 @@ export default function Range() {
           <input
             type="range"
             id="price"
-            className="price"
+            className="price cursor-pointer"
             name="price"
             min={0}
             max={maxPrice + 20}

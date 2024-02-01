@@ -1,24 +1,19 @@
+/* eslint-disable react/prop-types */
 import { LiaRupeeSignSolid } from "react-icons/lia";
 
 import ButtonCart from "../../UI/ButtonCart";
 import Rating from "../../UI/Rating";
-import LoadingScreen from "../../UI/LoadingScreen";
 
 import { currencyFormatter } from "../../helper";
-import { useMeals } from "./useMeals";
 
-export default function MealItem() {
-  const { mealItems, isLoading: isLoadingMeals } = useMeals();
-
-  if (isLoadingMeals) return <LoadingScreen />;
-
+export default function SearchItem({ searchResults }) {
   return (
     <>
-      {mealItems?.map((item) => {
+      {searchResults?.map((item) => {
         return (
           <div
             key={item.name}
-            className="  relative flex w-[220px] bg-White cursor-pointer flex-col rounded-xl border-[10px] border-White shadow-xl outline outline-2 outline-LightGrey transition duration-300 hover:scale-105 hover:shadow-2xl "
+            className=" bg-White relative flex w-[220px] cursor-pointer flex-col rounded-xl border-[10px] border-White shadow-xl outline outline-2 outline-LightGrey transition duration-300 hover:scale-105 hover:shadow-2xl "
           >
             <div className=" h-[135px] w-auto overflow-hidden rounded-xl">
               <div
@@ -28,6 +23,7 @@ export default function MealItem() {
               </div>
               <img src={item.image} className=" h-auto w-full" />
             </div>
+
             <div className=" flex flex-auto flex-grow flex-col gap-2 p-2 ">
               <p className=" text-sm font-semibold text-DarkGrey ">
                 {item.name}
@@ -42,6 +38,7 @@ export default function MealItem() {
                   {currencyFormatter(Math.ceil(item.price))}
                 </p>
               </div>
+
               <ButtonCart item={item} className="items-end " />
             </div>
           </div>

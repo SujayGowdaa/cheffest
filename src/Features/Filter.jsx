@@ -57,7 +57,7 @@ export default function Filter() {
   }, [isBtnOn, searchParams, setSearchParams]);
 
   return (
-    <div className="  flex flex-col gap-4 bg-white px-24 py-12 ">
+    <div className="  flex flex-col gap-4 bg-white px-24 py-6 sticky top-[119px] w-full z-10 shadow-[0px_0px_20px_1px_rgba(0,0,0,0.1)]">
       <h2 className="text-xl font-bold text-DarkGrey">Filters</h2>
       <div className=" flex  items-center justify-between ">
         <div className=" flex  gap-12 ">

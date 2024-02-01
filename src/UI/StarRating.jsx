@@ -47,9 +47,13 @@ export default function StarRating({ maxRating = 5, curRating = 0 }) {
                 onMouseLeave={() => setHover(rating)}
               >
                 {full ? (
-                  <HiMiniStar className={`text-2xl  text-Yellow`} />
+                  <HiMiniStar
+                    className={`text-2xl  text-Yellow cursor-pointer`}
+                  />
                 ) : (
-                  <HiMiniStar className={`text-2xl  text-gray-200 `} />
+                  <HiMiniStar
+                    className={`text-2xl  text-gray-200  cursor-pointer`}
+                  />
                 )}
               </span>
             );

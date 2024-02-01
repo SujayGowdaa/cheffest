@@ -1,23 +1,20 @@
 /* eslint-disable react/prop-types */
-import { FaLongArrowAltRight, FaTrash } from "react-icons/fa";
+import { FaLongArrowAltRight } from "react-icons/fa";
+import { MdOutlineRemoveCircle } from "react-icons/md";
 
 import Button from "../../UI/Button";
-import NoData from "../../UI/NoData";
 import CartTotal from "./CartTotal";
 
 import { currencyFormatter } from "../../helper";
-import SmallLoader from "../../UI/SmallLoader";
 
 export default function CartItems({
   isLoadingCart,
   cartData,
   handleCheckOut,
-  handleClearCart,
   handleIncrease,
   handleDecrease,
+  handleDelete,
 }) {
-  if (isLoadingCart) return <SmallLoader />;
-  if (cartData?.length < 1) return <NoData />;
   return (
     <>
       <div
@@ -31,7 +28,7 @@ export default function CartItems({
               className=" flex gap-12 items-center justify-between border p-4 rounded-md border-LightGrey"
             >
               <div className=" flex flex-col gap-1">
-                <span className=" text-sm font-bold capitalize w-[160px]">
+                <span className=" text-sm font-bold capitalize w-[140px]">
                   {item.name}
                 </span>
                 <div className=" flex justify-start items-start text-Grey gap-[2px]">
@@ -58,11 +55,17 @@ export default function CartItems({
                   {"+"}
                 </button>
               </div>
-              <div className=" flex text-Grey gap-[2px] w-[120px]  justify-end">
-                <span className=" text-xs mt-1 text-Orange">₹</span>
-                <span className=" text-xl text-DarkGrey font-bold ">
-                  {currencyFormatter(item.totalPrice)}
-                </span>
+              <div className=" flex items-center gap-4">
+                <div className=" flex text-Grey gap-[2px] w-[80px]  justify-end">
+                  <span className=" text-xs mt-1 text-Orange">₹</span>
+                  <span className=" text-xl text-DarkGrey font-bold ">
+                    {currencyFormatter(item.totalPrice)}
+                  </span>
+                </div>
+                <MdOutlineRemoveCircle
+                  className=" text-xl text-Orange cursor-pointer"
+                  onClick={() => handleDelete(item.id)}
+                />
               </div>
             </div>
           );
@@ -80,16 +83,6 @@ export default function CartItems({
         >
           Checkout
           <FaLongArrowAltRight />
-        </Button>
-        <Button
-          type="clear"
-          onClick={(e) => {
-            handleClearCart();
-            e.stopPropagation();
-          }}
-        >
-          Clear
-          <FaTrash className=" text-sm" />
         </Button>
       </div>
     </>

@@ -29,10 +29,10 @@ export default function SortBy({ options }) {
         name="Sort By"
         value={sortBy || ""}
         onChange={(e) => handleChange(e.target.value)}
-        className=" h-8 rounded-md bg-LightGrey px-3 text-sm font-light text-MediumGrey focus:outline-none "
+        className=" h-8 rounded-md bg-LightGrey px-3 text-sm font-light text-MediumGrey focus:outline-none cursor-pointer"
       >
         {options.map((op) => (
-          <option key={op.label} value={op.value}>
+          <option className=" cursor-pointer" key={op.label} value={op.value}>
             {op.label}
           </option>
         ))}

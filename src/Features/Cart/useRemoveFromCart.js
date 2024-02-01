@@ -7,7 +7,6 @@ export function useRemoveFromCart() {
   const { mutate: removeItem, isPending } = useMutation({
     mutationFn: (id) => removeItemApi(id),
     onSettled: () => {
-      console.log("invalidate");
       queryClient.invalidateQueries("cart");
     },
     onError: (err) => alert(err.message),

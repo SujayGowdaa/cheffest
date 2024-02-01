@@ -51,7 +51,7 @@ export async function addItem(newItem) {
   const { data, error } = await supabase
     .from("cart")
     .insert([newItem])
-    .select();
+    .single();
 
   if (error) throw new Error(error.message);
 
@@ -59,7 +59,11 @@ export async function addItem(newItem) {
 }
 
 export async function removeItem(id) {
-  const { data, error } = await supabase.from("cart").delete().eq("id", id);
+  const { data, error } = await supabase
+    .from("cart")
+    .delete()
+    .eq("id", id)
+    .single();
 
   if (error) throw new Error(error.message);
   return data;
@@ -103,14 +107,12 @@ export async function decreaseItem(item) {
   return data;
 }
 
-export async function clearCart() {
-  const { error } = await supabase
-    .from("cart")
-    .delete()
-    .eq("id", { value: [17, 18] });
+export async function deleteItem(id) {
+  const { data, error } = await supabase.from("cart").delete().eq("id", id);
 
   if (error) {
     throw new Error(error.message);
   }
-  return null;
+
+  return data;
 }

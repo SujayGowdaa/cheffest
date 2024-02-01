@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getMeals } from "../../services/apiMeals";
 import { useSearchParams } from "react-router-dom";
 
-export default function useMeals() {
+export function useMeals() {
   const [searchParams] = useSearchParams();
 
   const filterRange = searchParams.get("price");

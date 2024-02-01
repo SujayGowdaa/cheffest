@@ -96,24 +96,19 @@
   }
 }
 
-.parent {
-  /* background-color: #fa9200; */
-  position: relative;
-  /* overflow: hidden; */
-}
-
 .open {
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: 120px;
+  z-index: 20;
   right: 0;
-  transition: all 0.3s;
+  transition: all 0.3s ease-out;
 }
 
 .close {
-  position: fixed;
-  top: 0;
-
-  transition: all 0.3s;
+  top: 120px;
+  right: -650px;
+  position: absolute;
+  transition: all 0.3s ease-in;
 }
 
 .buttonCheckout::before {
