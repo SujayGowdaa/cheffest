@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import Home from "./Pages/Home";
 import Search from "./Pages/Search";
@@ -9,6 +9,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import AppContext from "./store/AppContext";
 import Order from "./Pages/Order";
+import Meal from "./Pages/Meal";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,7 +27,9 @@ function App() {
           <ReactQueryDevtools initialIsOpen={false} />
           <Routes>
             <Route element={<AppLayout />}>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Navigate replace to={"/meals"} />} />
+              <Route path="/meals" index element={<Home />} />
+              <Route path="/meals/:mealId" element={<Meal />} />
               <Route path="/search" element={<Search />} />
               <Route path="/order" element={<Order />} />
               <Route path="*" element={<PageNotFound />} />

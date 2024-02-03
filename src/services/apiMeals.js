@@ -5,6 +5,7 @@ export async function getMeals({
   filterTypeObj,
   filterSortByObj,
   filterRangeObj,
+  getDetailsId,
 }) {
   const query = supabase.from("mealItems").select("*");
 
@@ -24,6 +25,8 @@ export async function getMeals({
     query.order("price", {
       ascending: filterSortByObj.value === "price-asc" ? true : false,
     });
+
+  if (getDetailsId !== null) query.eq("id", getDetailsId);
 
   const { data, error } = await query;
 

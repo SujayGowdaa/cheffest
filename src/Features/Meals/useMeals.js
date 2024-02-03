@@ -1,9 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { getMeals } from "../../services/apiMeals";
-import { useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 export function useMeals() {
   const [searchParams] = useSearchParams();
+  const { mealId } = useParams();
 
   const filterRange = searchParams.get("price");
   const filterRangeObj = !filterRange
@@ -34,6 +35,9 @@ export function useMeals() {
         value: filterSortBy,
       };
 
+  const getDetails = mealId;
+  const getDetailsId = !getDetails ? null : getDetails;
+
   const { data: mealItems, isLoading } = useQuery({
     queryKey: [
       "mealItems",
@@ -41,6 +45,7 @@ export function useMeals() {
       filterTypeObj,
       filterSortByObj,
       filterRangeObj,
+      getDetailsId,
     ],
     queryFn: () =>
       getMeals({
@@ -48,6 +53,7 @@ export function useMeals() {
         filterTypeObj,
         filterSortByObj,
         filterRangeObj,
+        getDetailsId,
       }),
   });
 

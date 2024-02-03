@@ -6,15 +6,9 @@ import Button from "../../UI/Button";
 import CartTotal from "./CartTotal";
 
 import { currencyFormatter } from "../../helper";
+import QuantityButton from "./QuantityButton";
 
-export default function CartItems({
-  isLoadingCart,
-  cartData,
-  handleCheckOut,
-  handleIncrease,
-  handleDecrease,
-  handleDelete,
-}) {
+export default function CartItems({ cartData, handleCheckOut, handleDelete }) {
   return (
     <>
       <div
@@ -36,25 +30,7 @@ export default function CartItems({
                   <span className=" font-medium text-xs ">{item.price}</span>
                 </div>
               </div>
-              <div className=" flex h-6 items-center border text-Orange border-Yellow rounded-[4px] bg-LighYellow">
-                <button
-                  className=" p-1  disabled:cursor-not-allowed"
-                  onClick={() => handleDecrease(item)}
-                  disabled={isLoadingCart}
-                >
-                  {"-"}
-                </button>
-                <span className="flex items-center text-sm h-full p-1 mt-[1px]">
-                  {item.quantity}
-                </span>
-                <button
-                  className=" p-1 disabled:cursor-not-allowed"
-                  onClick={() => handleIncrease(item)}
-                  disabled={isLoadingCart}
-                >
-                  {"+"}
-                </button>
-              </div>
+              <QuantityButton item={item} />
               <div className=" flex items-center gap-4">
                 <div className=" flex text-Grey gap-[2px] w-[80px]  justify-end">
                   <span className=" text-xs mt-1 text-Orange">₹</span>

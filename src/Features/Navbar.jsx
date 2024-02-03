@@ -14,7 +14,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className="pointer-events-auto outline:LightGrey  border-LightGrey-3 w-full flex h-[120px] max-w-max items-center justify-between border-b-2 border-LightGrey px-24 bg-White ">
+    <header className="pointer-events-auto outline:LightGrey border-LightGrey-3 flex h-[120px] items-center justify-between border-b-2 border-LightGrey px-24 bg-White ">
       <div>
         <Link to={"/"}>
           <img src={logo} alt="cheffest" className=" w-[110px]" />

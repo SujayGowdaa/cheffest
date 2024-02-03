@@ -6,9 +6,18 @@ import LoadingScreen from "../../UI/LoadingScreen";
 
 import { currencyFormatter } from "../../helper";
 import { useMeals } from "./useMeals";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 export default function MealItem() {
+  const [searchParamas, setSearchParams] = useSearchParams();
   const { mealItems, isLoading: isLoadingMeals } = useMeals();
+  const navigate = useNavigate();
+
+  function handleClickMeal(id) {
+    searchParamas.set("mealId", id);
+    setSearchParams(setSearchParams);
+    navigate(`/meals/${id}`);
+  }
 
   if (isLoadingMeals) return <LoadingScreen />;
 
@@ -19,6 +28,7 @@ export default function MealItem() {
           <div
             key={item.name}
             className="  relative flex w-[220px] bg-White cursor-pointer flex-col rounded-xl border-[10px] border-White shadow-xl outline outline-2 outline-LightGrey transition duration-300 hover:scale-105 hover:shadow-2xl "
+            onClick={() => handleClickMeal(item.id)}
           >
             <div className=" h-[135px] w-auto overflow-hidden rounded-xl">
               <div
