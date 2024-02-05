@@ -40,7 +40,7 @@
 
 .button::after {
   transition: 0.2s;
-  content: "";
+  content: '';
   position: absolute;
   height: 20px;
   width: 20px;
@@ -66,12 +66,6 @@
 }
 .nonVeg::after {
   transform: translateX(24px);
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .loader {
@@ -112,7 +106,7 @@
 }
 
 .buttonCheckout::before {
-  content: "";
+  content: '';
   background: rgb(255, 255, 255);
   background: linear-gradient(
     90deg,

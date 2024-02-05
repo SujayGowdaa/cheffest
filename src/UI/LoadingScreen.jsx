@@ -1,7 +1,7 @@
 export default function LoadingScreen() {
   return (
-    <div className="container">
-      <div className="loader"></div>
+    <div className=' flex justify-center items-center h-screen w-screen'>
+      <div className='loader'></div>
     </div>
   );
 }
