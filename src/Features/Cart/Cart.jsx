@@ -1,30 +1,18 @@
 import { useAppContext } from '../../store/AppContext';
 import { useCart } from './useCart';
 
-import { useDeleteItem } from './useClearCart';
-
 import CartItems from './CartItems';
 import SmallLoader from '../../UI/SmallLoader';
-import { useNavigate } from 'react-router-dom';
 import NoData from '../../UI/NoData';
 
 export default function Cart() {
-  const { isCartOpen, setIsCartOpen, isCartLoading } = useAppContext();
+  const {
+    isCartOpen,
+    isCartLoading,
+
+    handleCloseCart,
+  } = useAppContext();
   const { data: cartData } = useCart();
-  const { deleteItem } = useDeleteItem();
-  const navigate = useNavigate();
-
-  function handleCheckOut() {
-    navigate('/order');
-    setIsCartOpen(false);
-  }
-  function handleDelete(id) {
-    deleteItem(id);
-  }
-
-  function handleCloseCart() {
-    setIsCartOpen(false);
-  }
 
   // Sorting the array of objects based on the 'name' property
   cartData?.sort((a, b) => {
@@ -48,17 +36,13 @@ export default function Cart() {
       >
         <div className=' cursor-default flex text-3xl mb-8 gap-6 justify-between'>
           <h2 className=' text-2xl font-bold capitalize '>My orders</h2>
-          {isCartLoading && <SmallLoader />}
+          {isCartLoading && <SmallLoader showLoading={false} />}
         </div>
         <div className=' flex flex-col gap-12'>
           {cartData?.length < 1 ? (
             <NoData />
           ) : (
-            <CartItems
-              cartData={cartData}
-              handleCheckOut={handleCheckOut}
-              handleDelete={handleDelete}
-            />
+            <CartItems cartData={cartData} />
           )}
         </div>
       </div>

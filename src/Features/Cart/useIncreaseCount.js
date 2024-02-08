@@ -1,5 +1,5 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { increaseItem as increaseItemApi } from "../../services/apiMeals";
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { increaseItem as increaseItemApi } from '../../services/apiMeals';
 
 export function useIncreaseCount() {
   const queryClient = useQueryClient();
@@ -7,7 +7,7 @@ export function useIncreaseCount() {
   const { mutate: increaseItem, isPending } = useMutation({
     mutationFn: (item) => increaseItemApi(item),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["cart"] });
+      queryClient.invalidateQueries({ queryKey: ['cart'] });
     },
     onError: (err) => {
       throw new Error(err.message);

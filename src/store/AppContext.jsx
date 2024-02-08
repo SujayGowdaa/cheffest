@@ -6,6 +6,7 @@ import { useDecreaseCount } from '../Features/Cart/useDecreaseCount';
 import { useDeleteItem } from '../Features/Cart/useClearCart';
 import { useRemoveFromCart } from '../Features/Cart/useRemoveFromCart';
 import { useAddToCart } from '../Features/Cart/useAddToCart';
+import { placeHolderImage } from '../Utils/GlobalConst';
 
 const Context = createContext();
 
@@ -17,10 +18,15 @@ export default function AppContext({ children }) {
   const { removeItem, isPending: isRemoving } = useRemoveFromCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [userName, setUserName] = useState('');
+  const [avatar, setAvatar] = useState(placeHolderImage);
 
   const isCartLoading =
     isDecreasing || isIncreasing || isDeleting || isAdding || isRemoving;
 
+  function handleCloseCart() {
+    setIsCartOpen(false);
+  }
   function handleIncrease(item) {
     increaseItem(item);
   }
@@ -37,6 +43,15 @@ export default function AppContext({ children }) {
     addItem(item);
   }
 
+  function handleCheckOut() {
+    setIsCartOpen(false);
+  }
+
+  document.body.addEventListener('click', () => {
+    setIsMenuOpen(false);
+    console.log('clicked');
+  });
+
   return (
     <Context.Provider
       value={{
@@ -45,11 +60,17 @@ export default function AppContext({ children }) {
         handleDecrease,
         handleIncrease,
         isCartLoading,
+        handleCloseCart,
         handleDelete,
         handleAddItem,
         removeItem,
         isMenuOpen,
         setIsMenuOpen,
+        userName,
+        setUserName,
+        avatar,
+        setAvatar,
+        handleCheckOut,
       }}
     >
       {children}

@@ -1,4 +1,4 @@
-import Login from '../Features/Authentication/Login/Login';
+import Login from '../Features/Authentication/Login';
 
 export default function Authentication() {
   return <Login />;

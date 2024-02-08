@@ -1,7 +1,69 @@
-import { supabase } from './superbase';
+import { supabase, supabaseUrl } from './superbase';
+
+export async function updatePicture(avatar) {
+  if (!avatar) return;
+
+  const filePath = avatar.name;
+  const { error } = supabase.storage.from('user').upload(filePath, avatar, {
+    upsert: true,
+  });
+
+  if (error) {
+    console.log(error.message);
+    throw new Error(error.message);
+  }
+
+  const { data, error: updateError } = await supabase.auth.updateUser({
+    data: {
+      image: `${supabaseUrl}/storage/v1/object/public/user/${filePath}`,
+    },
+  });
+
+  if (updateError) throw new Error(error.message);
+  return data;
+}
+
+export async function removePicture() {
+  const { data, error } = await supabase.auth.updateUser({
+    data: {
+      image: '',
+    },
+  });
+
+  if (error) throw new Error(error.message);
+  return data;
+}
+
+export async function signUp({ fullName, email, password }) {
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      data: {
+        fullName: fullName,
+        image: '',
+      },
+    },
+  });
+
+  if (error) throw new Error(error.message);
+  return data;
+}
+
+export async function resetPassword(email) {
+  const { data, error } = await supabase.auth.resetPasswordForEmail(email);
+
+  if (error) throw new Error(error.message);
+  return data;
+}
+
+export async function updatePassword(newPassword) {
+  console.log(newPassword);
+  await supabase.auth.updateUser({ password: newPassword });
+}
 
 export async function login({ email, password }) {
-  let { data, error } = await supabase.auth.signInWithPassword({
+  const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,
   });
@@ -21,7 +83,7 @@ export async function getCurrentUser() {
 }
 
 export async function logout() {
-  let { error } = await supabase.auth.signOut();
+  const { error } = await supabase.auth.signOut();
 
   if (error) throw new Error(error.message);
   return null;

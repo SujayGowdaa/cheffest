@@ -18,20 +18,20 @@ export default function Navbar() {
   }
 
   return (
-    <header className='pointer-events-auto outline:LightGrey  flex h-[120px] items-center justify-between border-b-4 border-LightGrey px-24 bg-White '>
+    <header className='pointer-events-auto outline:LightGrey  flex h-[120px] items-center justify-between border-b-[3px] border-LightGrey px-24 bg-White '>
       <div>
         <Link to={'/'}>
           <Logo size='w-[120px]' />
         </Link>
       </div>
       <div>
-        <div className=' flex items-center gap-10 '>
+        <div className=' flex items-center gap-12 '>
           <div className=' flex gap-6'>
             <Link to={'search'}>
               <FiSearch className=' text-Grey cursor-pointer text-3xl' />
             </Link>
             <div className=' relative'>
-              <span className='num-of-items flex items-center justify-center text-sm font-medium text-White'>
+              <span className='num-of-items flex items-center justify-center text-sm font-medium text-White pt-1'>
                 {cartLength}
               </span>
               <FiShoppingCart

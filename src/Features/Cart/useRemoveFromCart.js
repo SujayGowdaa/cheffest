@@ -1,5 +1,6 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { removeItem as removeItemApi } from "../../services/apiMeals";
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { removeItem as removeItemApi } from '../../services/apiMeals';
+import { toast } from 'sonner';
 
 export function useRemoveFromCart() {
   const queryClient = useQueryClient();
@@ -7,7 +8,8 @@ export function useRemoveFromCart() {
   const { mutate: removeItem, isPending } = useMutation({
     mutationFn: (id) => removeItemApi(id),
     onSettled: () => {
-      queryClient.invalidateQueries("cart");
+      queryClient.invalidateQueries('cart');
+      toast.success('Removed from cart');
     },
     onError: (err) => alert(err.message),
   });
