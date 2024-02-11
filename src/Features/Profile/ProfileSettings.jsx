@@ -2,6 +2,9 @@ import UpdatePassword from './UpdatePassword';
 import UpdatePicture from './UpdatePicture';
 
 export default function ProfileSettings() {
+  window.scrollTo({
+    top: 0,
+  });
   return (
     <div className=' flex flex-col items-center px-24 py-24 '>
       <div className=' h-[120px]'></div>

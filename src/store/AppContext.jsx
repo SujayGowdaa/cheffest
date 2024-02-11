@@ -20,6 +20,11 @@ export default function AppContext({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [userName, setUserName] = useState('');
   const [avatar, setAvatar] = useState(placeHolderImage);
+  const [isCoupon, setCoupon] = useState(false);
+  const [isCouponApplicable, setIsCouponApplicable] = useState({
+    minBillValue: undefined,
+    isCouponApplicable: true,
+  });
 
   const isCartLoading =
     isDecreasing || isIncreasing || isDeleting || isAdding || isRemoving;
@@ -49,7 +54,6 @@ export default function AppContext({ children }) {
 
   document.body.addEventListener('click', () => {
     setIsMenuOpen(false);
-    console.log('clicked');
   });
 
   return (
@@ -71,6 +75,10 @@ export default function AppContext({ children }) {
         avatar,
         setAvatar,
         handleCheckOut,
+        isCoupon,
+        setCoupon,
+        isCouponApplicable,
+        setIsCouponApplicable,
       }}
     >
       {children}

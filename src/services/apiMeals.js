@@ -92,6 +92,7 @@ export async function decreaseItem(item) {
   const isQuantityOne = item.quantity === 1;
 
   if (isQuantityOne) {
+    removeCoupon();
     const { data, error: itemRemoveError } = await query
       .delete()
       .eq('id', item.id);
@@ -111,11 +112,51 @@ export async function decreaseItem(item) {
 }
 
 export async function deleteItem(id) {
+  removeCoupon();
   const { data, error } = await supabase.from('cart').delete().eq('id', id);
 
   if (error) {
     throw new Error(error.message);
   }
-
   return data;
+}
+
+export async function getCoupon() {
+  const { data, error } = await supabase.from('coupon').select().eq('id', 1);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+  return data;
+}
+
+export async function applyCoupon(coupon) {
+  const { data, error } = await supabase
+    .from('coupon')
+    .update({ ...coupon, isCouponApplied: true })
+    .eq('id', 1);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+  return data;
+}
+
+export async function removeCoupon() {
+  const defaultData = {
+    minBillValue: 0,
+    couponValue: 0,
+    calMethod: '',
+    isCouponApplied: false,
+  };
+
+  const { error } = await supabase
+    .from('coupon')
+    .update({ ...defaultData })
+    .eq('id', 1);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+  return null;
 }

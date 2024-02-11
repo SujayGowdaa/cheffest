@@ -31,8 +31,7 @@ export default function Cart() {
   return (
     <>
       <div
-        className={`${isCartOpen ? 'open' : 'close'} inline-block p-20 bg-White right-0 cursor-pointer text-DarkGrey  shadow-xl h-screen pointer-events-auto overflow-scroll pb-[220px]`}
-        onClick={(e) => handleCloseCart(e)}
+        className={`${isCartOpen ? 'open' : 'close'} inline-block p-20 bg-White right-0  text-DarkGrey  shadow-xl h-screen pointer-events-auto overflow-scroll pb-[220px]`}
       >
         <div className=' cursor-default flex text-3xl mb-8 gap-6 justify-between'>
           <h2 className=' text-2xl font-bold capitalize '>My orders</h2>

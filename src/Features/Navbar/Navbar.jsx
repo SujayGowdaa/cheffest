@@ -1,5 +1,5 @@
 import { FiShoppingCart, FiSearch } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../store/AppContext';
 
 import Logo from '../../UI/Logo';
@@ -12,13 +12,18 @@ export default function Navbar() {
   const { data: cartData } = useCart();
   const { setIsCartOpen } = useAppContext();
   const cartLength = cartData?.length;
+  const navigate = useNavigate();
 
+  function handleSearch() {
+    navigate('/search');
+    setIsCartOpen(false);
+  }
   function handleClickCart() {
     setIsCartOpen((ps) => (ps === true ? false : true));
   }
 
   return (
-    <header className='pointer-events-auto outline:LightGrey  flex h-[120px] items-center justify-between border-b-[3px] border-LightGrey px-24 bg-White '>
+    <header className='pointer-events-auto outline:LightGrey flex h-[120px] items-center justify-between border-b-[3px] border-LightGrey px-24 bg-White '>
       <div>
         <Link to={'/'}>
           <Logo size='w-[120px]' />
@@ -27,11 +32,13 @@ export default function Navbar() {
       <div>
         <div className=' flex items-center gap-12 '>
           <div className=' flex gap-6'>
-            <Link to={'search'}>
-              <FiSearch className=' text-Grey cursor-pointer text-3xl' />
-            </Link>
+            <FiSearch
+              className=' text-Grey cursor-pointer text-3xl'
+              onClick={handleSearch}
+            />
+
             <div className=' relative'>
-              <span className='num-of-items flex items-center justify-center text-sm font-medium text-White pt-1'>
+              <span className='num-of-items flex items-center justify-center text-sm font-medium text-White '>
                 {cartLength}
               </span>
               <FiShoppingCart

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import { IoMdAdd, IoMdRemove } from "react-icons/io";
-import { useAppContext } from "../../../store/AppContext";
+import { IoMdAdd, IoMdRemove } from 'react-icons/io';
+import { useAppContext } from '../../../store/AppContext';
 
 export default function MealCount({ cartData, item }) {
   const {
@@ -56,23 +56,23 @@ export default function MealCount({ cartData, item }) {
   }
 
   return (
-    <div className="flex items-center rounded-md text-xl bg-LightGrey  justify-center w-full  outline outline-2 outline-Grey">
+    <div className='flex items-center rounded-md text-xl bg-LightGrey  justify-center w-full  outline outline-2 outline-Grey'>
       <button
-        className={` text-Grey px-4 py-2 w-full basis[200px]  flex justify-center items-center ${isCartLoading && " cursor-pointer"} ${mealToUpdate === undefined && "cursor-not-allowed"}`}
+        className={` text-Grey px-4 py-2 w-full basis[200px]  flex justify-center items-center ${isCartLoading && ' cursor-pointer'} ${mealToUpdate === undefined && 'cursor-not-allowed'}`}
         disabled={isCartLoading}
         onClick={handleDecreaseCount}
       >
-        <IoMdRemove className=" stroke-[10px] text-2xl" />
+        <IoMdRemove className=' stroke-[10px] text-2xl' />
       </button>
-      <span className="text-2xl  text-MediumGrey w-full flex justify-center font-semibold outline outline-2 outline-Grey px-4 py-1">
+      <span className='text-2xl  text-MediumGrey w-full flex justify-center font-semibold outline outline-2 outline-Grey px-4 py-1'>
         {quantity}
       </span>
       <button
-        className={` text-Grey px-4 py-2 w-full flex justify-center items-center ${isCartLoading && " cursor-pointer"}`}
+        className={` text-Grey px-4 py-2 w-full flex justify-center items-center ${isCartLoading && ' cursor-pointer'}`}
         disabled={isCartLoading}
         onClick={handleIncreaseCount}
       >
-        <IoMdAdd className=" stroke-[10px] text-2xl" />
+        <IoMdAdd className=' stroke-[10px] text-2xl' />
       </button>
     </div>
   );

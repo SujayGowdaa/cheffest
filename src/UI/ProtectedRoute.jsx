@@ -14,7 +14,7 @@ export default function ProtectedRoute({ children }) {
     setAvatar((ps) => {
       return user?.user_metadata?.image || ps;
     });
-
+    console.log('rendered');
     setUserName(user?.user_metadata?.fullName || 'unknown');
     if (!isAuthenticated && !isLoading && fetchStatus === 'idle')
       navigate('/login');

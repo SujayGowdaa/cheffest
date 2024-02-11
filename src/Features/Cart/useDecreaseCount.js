@@ -1,15 +1,15 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { decreaseItem as decreaseItemApi } from "../../services/apiMeals";
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { decreaseItem as decreaseItemApi } from '../../services/apiMeals';
 
 export function useDecreaseCount() {
   const queryClient = useQueryClient();
 
   const { mutate: decreaseItem, isPending } = useMutation({
     mutationFn: (item) => decreaseItemApi(item),
-    mutationKey: ["cart"],
+    mutationKey: ['cart'],
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: ["cart"],
+        queryKey: ['cart'],
       });
     },
     onError: (err) => {

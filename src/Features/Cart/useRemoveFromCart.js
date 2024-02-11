@@ -9,7 +9,7 @@ export function useRemoveFromCart() {
     mutationFn: (id) => removeItemApi(id),
     onSettled: () => {
       queryClient.invalidateQueries('cart');
-      toast.success('Removed from cart');
+      toast.success('Removed from the cart');
     },
     onError: (err) => alert(err.message),
   });
