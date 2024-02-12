@@ -160,3 +160,17 @@ export async function removeCoupon() {
   }
   return null;
 }
+
+export async function emptyCart() {
+  const data = await getCart();
+  let ids = [];
+  if (data) {
+    data.map((item) => (ids = [...ids, item.id]));
+  }
+  for (const id of ids) {
+    const { error } = await supabase.from('cart').delete().eq('id', id);
+    if (error) throw new Error(error.message);
+  }
+
+  return null;
+}

@@ -20,7 +20,7 @@ export function useLogin() {
       });
     },
     onError: (err) =>
-      toast.error(err.message, {
+      toast.error(err, {
         position: 'bottom-right',
       }),
   });

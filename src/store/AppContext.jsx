@@ -25,6 +25,7 @@ export default function AppContext({ children }) {
     minBillValue: undefined,
     isCouponApplicable: true,
   });
+  const [cartDetails, setCartDetails] = useState({});
 
   const isCartLoading =
     isDecreasing || isIncreasing || isDeleting || isAdding || isRemoving;
@@ -79,6 +80,8 @@ export default function AppContext({ children }) {
         setCoupon,
         isCouponApplicable,
         setIsCouponApplicable,
+        setCartDetails,
+        cartDetails,
       }}
     >
       {children}
@@ -88,7 +91,6 @@ export default function AppContext({ children }) {
 
 export function useAppContext() {
   const context = useContext(Context);
-  if (!context)
-    throw new Error('Please use context within the context provider.');
+  if (!context) console.log('Please use context within the context provider.');
   return context;
 }

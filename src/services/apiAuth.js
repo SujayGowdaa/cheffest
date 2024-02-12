@@ -1,8 +1,6 @@
 import { supabase, supabaseUrl } from './superbase';
 
 export async function updatePicture(avatar) {
-  if (!avatar) return;
-
   const filePath = avatar.name;
   const { error } = supabase.storage.from('user').upload(filePath, avatar, {
     upsert: true,

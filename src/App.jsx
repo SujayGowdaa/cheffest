@@ -15,6 +15,7 @@ import ProtectedRoute from './UI/ProtectedRoute';
 import SignUp from './Features/Authentication/SignUp';
 import ResetPassword from './Features/Authentication/ResetPassword';
 import Profile from './Pages/Profile';
+import OrderDetails from './Features/Order/OrderDetails';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
               <Route path='/meals/:mealId' element={<Meal />} />
               <Route path='/search' element={<Search />} />
               <Route path='/order' element={<Order />} />
+              <Route path='/order/:orderId' element={<OrderDetails />} />
               <Route path='/profile' element={<Profile />} />
               <Route path='*' element={<PageNotFound />} />
             </Route>

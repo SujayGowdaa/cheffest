@@ -10,7 +10,7 @@ export function useUpdatePicture() {
       queryClient.setQueryData(['user'], user);
       toast.success('Profile picture updated');
     },
-    onError: () => toast.error('Profile picture cannot be updated'),
+    onError: () => toast.error('Please upload an image'),
   });
   return { updatePicture, isPending };
 }

@@ -1,6 +1,7 @@
 import NoData from '../../UI/NoData';
 import SmallLoader from '../../UI/SmallLoader';
 import MealItem from './MealItem';
+
 import { useMeals } from './useMeals';
 
 export default function Meals() {

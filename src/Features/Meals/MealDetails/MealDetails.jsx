@@ -1,6 +1,8 @@
+import { useNavigate } from 'react-router-dom';
+import { FaWindowClose } from 'react-icons/fa';
+
 import ButtonCart from '../../../UI/ButtonCart';
 import LoadingScreen from '../../../UI/LoadingScreen';
-
 import Price from './Price';
 import Name from './Name';
 import Description from './Description';
@@ -8,16 +10,14 @@ import Ingredients from './Ingredients';
 import Ratings from './Ratings';
 import TypeNonVeg from './TypeNonVeg';
 import Image from './Image';
-
-import { useCart } from '../../Cart/useCart';
-import { useMeals } from '../useMeals';
 import TypeVeg from './TypeVeg';
 import Category from './Category';
 import MealCount from './MealCount.JSX';
-import { useAppContext } from '../../../store/AppContext';
 import SmallLoader from '../../../UI/SmallLoader';
-import { FaWindowClose } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+
+import { useAppContext } from '../../../store/AppContext';
+import { useCart } from '../../Cart/useCart';
+import { useMeals } from '../useMeals';
 
 export default function MealDetails() {
   const { mealItems, isLoading } = useMeals();

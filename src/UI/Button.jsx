@@ -29,6 +29,7 @@ export default function Button({
         className={`  gap-3 text-lg relative buttonCheckout p-4 tracking-wide bg-Green text-White font-semibold rounded-md shadow-md border-2 border-DarkGreen flex items-center  justify-center overflow-hidden active:bg-DarkGreen uppercase ${disabled && ' cursor-not-allowed'}`}
       >
         {children}
+        {isPending && <SmallLoader showLoading={false} />}
       </button>
     );
 

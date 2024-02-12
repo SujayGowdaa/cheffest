@@ -1,29 +1,11 @@
 /* eslint-disable react/prop-types */
-import { useEffect } from 'react';
+
 import { useAppContext } from '../../store/AppContext';
-import { useCart } from './useCart';
-import { useCoupon } from './useCoupon';
-import { useRemoveCoupon } from './useRemoveCoupon';
+import { useCouponRemover } from '../../Utils/useCouponRemover';
 
 export default function QuantityButton({ item }) {
   const { handleDecrease, handleIncrease, isCartLoading } = useAppContext();
-  const { removeCoupon } = useRemoveCoupon();
-  const { data } = useCoupon();
-  const { data: cartData } = useCart();
-  const minBillValue = data?.[0].minBillValue;
-
-  useEffect(() => {
-    if (cartData) {
-      const totalCartPrice = cartData
-        ?.map((item) => item.totalPrice)
-        .reduce((acc, cur) => {
-          return acc + cur;
-        }, 0);
-      if (totalCartPrice < minBillValue || !totalCartPrice) {
-        removeCoupon();
-      }
-    }
-  }, [cartData, removeCoupon, minBillValue]);
+  useCouponRemover();
 
   function handleClickDec(item) {
     handleDecrease(item);

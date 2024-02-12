@@ -53,7 +53,7 @@ export default function UpdatePicture() {
           <Button
             onClick={(e) => handleRemoveImage(e)}
             type={'remove'}
-            disabled={isRemoving}
+            disabled={isRemoving || !profile}
             isPending={isRemoving}
           >
             Remove

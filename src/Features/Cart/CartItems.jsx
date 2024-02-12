@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { FaLongArrowAltRight } from 'react-icons/fa';
+import { FaLongArrowAltRight, FaTrash } from 'react-icons/fa';
 import { MdOutlineRemoveCircle } from 'react-icons/md';
 
 import Button from '../../UI/Button';
@@ -12,19 +12,68 @@ import { currencyFormatter } from '../../helper';
 import { useAppContext } from '../../store/AppContext';
 import { useNavigate } from 'react-router-dom';
 import { useCoupon } from './useCoupon';
+import { useEmptyCart } from '../Order/useEmptyCart';
 
 export default function CartItems({ cartData }) {
-  const { handleCheckOut, handleDelete, setIsCartOpen, isCouponApplicable } =
-    useAppContext();
+  const {
+    handleCheckOut,
+    handleDelete,
+    setIsCartOpen,
+    isCouponApplicable,
+    setCartDetails,
+  } = useAppContext();
   const { data: couponData, isLoading } = useCoupon();
   const navigate = useNavigate();
   const { isCouponApplicable: isApplicable, minBillValue } = isCouponApplicable;
+  const { isCouponApplied, couponValue, calMethod } = couponData?.[0] || [];
+  const { emptyCart } = useEmptyCart();
+
+  let totalCartPrice = cartData
+    ?.map((item) => item.totalPrice)
+    .reduce((acc, cur) => {
+      return acc + cur;
+    }, 0);
+
+  let discountPrice = 0;
+  let updatedCartPrice = 0;
+
+  if (isCouponApplied) {
+    discountPrice =
+      calMethod === 'percentage'
+        ? Math.ceil((totalCartPrice * couponValue) / 100)
+        : couponValue;
+    updatedCartPrice = totalCartPrice - discountPrice;
+  } else {
+    totalCartPrice = cartData
+      ?.map((item) => item.totalPrice)
+      .reduce((acc, cur) => {
+        return acc + cur;
+      }, 0);
+  }
+
+  let cartDetails = {
+    cartItems: cartData?.map((meal) => meal),
+  };
+
+  cartDetails = {
+    ...cartDetails,
+    discountPrice,
+    totalCartPrice,
+    updatedCartPrice,
+    isCouponApplied,
+  };
 
   function handleClickCheckOut(e) {
     e.stopPropagation();
     handleCheckOut();
     navigate('/order');
     setIsCartOpen(false);
+    setCartDetails(cartDetails);
+  }
+
+  function handleClickRemoveCart(e) {
+    e.stopPropagation();
+    emptyCart();
   }
 
   return (
@@ -73,7 +122,12 @@ export default function CartItems({ cartData }) {
           <p className=' text-xs text-Red'>{`Coupon only applicable for cart value above ₹${minBillValue}`}</p>
         )}
       </div>
-      <CartTotal cartData={cartData} couponData={couponData} />
+      <CartTotal
+        isCouponApplied={isCouponApplied}
+        discountPrice={discountPrice}
+        totalCartPrice={totalCartPrice}
+        updatedCartPrice={updatedCartPrice}
+      />
       <div className=' flex justify-center flex-col gap-6'>
         <Button
           type='checkout'
@@ -82,6 +136,14 @@ export default function CartItems({ cartData }) {
         >
           Checkout
           <FaLongArrowAltRight />
+        </Button>
+        <Button
+          type='clear'
+          onClick={(e) => handleClickRemoveCart(e)}
+          disabled={isLoading}
+        >
+          Clear
+          <FaTrash className=' text-sm' />
         </Button>
       </div>
     </>
