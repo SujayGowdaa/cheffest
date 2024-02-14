@@ -27,35 +27,35 @@ export default function OrderDetails() {
   } = currentOrder;
 
   return (
-    <div className=' flex flex-col justify-center h-screen w-screen p-24'>
-      <div className=' flex flex-col gap-12 items-center '>
-        <div className=' flex flex-col gap-1 items-center'>
-          <div className=' w-[300px] overflow-hidden'>
-            <img className=' w-full' src={orderPlaced} alt='order placed' />
-          </div>
-
-          <h1 className=' text-DarkGrey text-4xl tracking-tight font-extrabold uppercase mb-1'>
+    <div className=' flex flex-col h-screen w-screen p-4 gap-6'>
+      <div className=' h-[60px]'></div>
+      <div className=' flex flex-col items-center gap-3'>
+        <div className=' w-[200px] h-auto'>
+          <img className=' w-auto' src={orderPlaced} alt='order placed' />
+        </div>
+        <div className=' flex flex-col items-center'>
+          <h1 className=' text-DarkGrey text-xl tracking-tight font-extrabold uppercase'>
             Yay! We have received your order
           </h1>
-          <p className=' text-Grey text-lg '>
+          <p className=' text-Grey text-sm '>
             Your order will be devlivered soon...
           </p>
         </div>
-        <div className=' flex flex-col gap-6  max-w-[800px] w-full '>
-          <Order
-            id={id}
-            cartItems={cartItems}
-            discountPrice={discountPrice}
-            totalCartPrice={totalCartPrice}
-            updatedCartPrice={updatedCartPrice}
-            isCouponApplied={isCouponApplied}
-          />
-          <CusDetails
-            fullName={fullName}
-            phoneNumber={phoneNumber}
-            address={address}
-          />
-        </div>
+      </div>
+      <div className=' flex flex-col gap-6  max-w-[800px] w-full '>
+        <Order
+          id={id}
+          cartItems={cartItems}
+          discountPrice={discountPrice}
+          totalCartPrice={totalCartPrice}
+          updatedCartPrice={updatedCartPrice}
+          isCouponApplied={isCouponApplied}
+        />
+        <CusDetails
+          fullName={fullName}
+          phoneNumber={phoneNumber}
+          address={address}
+        />
       </div>
     </div>
   );

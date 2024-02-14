@@ -2,7 +2,7 @@
 export default function Name({ name }) {
   return (
     <div>
-      <span className=" text-3xl font-extrabold text-Black">{name}</span>
+      <span className=' text-xl font-bold text-Black'>{name}</span>
     </div>
   );
 }

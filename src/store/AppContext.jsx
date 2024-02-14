@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { useIncreaseCount } from '../Features/Cart/useIncreaseCount';
 import { useDecreaseCount } from '../Features/Cart/useDecreaseCount';
 import { useDeleteItem } from '../Features/Cart/useClearCart';
@@ -26,6 +26,8 @@ export default function AppContext({ children }) {
     isCouponApplicable: true,
   });
   const [cartDetails, setCartDetails] = useState({});
+  const [profile, setProfile] = useState();
+  const [viewPortWidth, setViewPortWidth] = useState(window.innerWidth);
 
   const isCartLoading =
     isDecreasing || isIncreasing || isDeleting || isAdding || isRemoving;
@@ -57,6 +59,15 @@ export default function AppContext({ children }) {
     setIsMenuOpen(false);
   });
 
+  useEffect(() => {
+    const updateWidth = () => {
+      setViewPortWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', updateWidth);
+
+    return () => window.removeEventListener('resize', updateWidth);
+  }, []);
+
   return (
     <Context.Provider
       value={{
@@ -82,6 +93,9 @@ export default function AppContext({ children }) {
         setIsCouponApplicable,
         setCartDetails,
         cartDetails,
+        profile,
+        setProfile,
+        viewPortWidth,
       }}
     >
       {children}

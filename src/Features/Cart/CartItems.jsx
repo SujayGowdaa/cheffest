@@ -79,17 +79,17 @@ export default function CartItems({ cartData }) {
   return (
     <>
       <div
-        className='  cursor-default flex gap-6 flex-col'
+        className='  cursor-default flex gap-4 flex-col w-full'
         onClick={(e) => e.stopPropagation()}
       >
         {cartData?.map((item) => {
           return (
             <div
               key={item.id}
-              className=' flex gap-12 items-center justify-between border p-4 rounded-md border-Grey/30'
+              className=' flex gap-4 items-center justify-between border p-2 rounded-md border-Grey/30'
             >
               <div className=' flex flex-col gap-1'>
-                <span className=' text-sm font-bold capitalize w-[140px]'>
+                <span className=' text-xs font-bold capitalize w-[100px]'>
                   {item.name}
                 </span>
                 <div className=' flex justify-start items-start text-Grey gap-[2px]'>
@@ -98,15 +98,15 @@ export default function CartItems({ cartData }) {
                 </div>
               </div>
               <QuantityButton item={item} />
-              <div className=' flex items-center gap-4'>
-                <div className=' flex text-Grey gap-[2px] w-[80px]  justify-end'>
+              <div className=' flex items-center gap-1'>
+                <div className=' flex text-Grey gap-[2px] w-[60px]  justify-end'>
                   <span className=' text-xs mt-1 text-Orange'>₹</span>
-                  <span className=' text-xl text-DarkGrey font-bold '>
+                  <span className=' text-DarkGrey font-bold '>
                     {currencyFormatter(item.totalPrice)}
                   </span>
                 </div>
                 <MdOutlineRemoveCircle
-                  className=' text-xl text-Orange cursor-pointer'
+                  className=' text-Orange cursor-pointer'
                   onClick={() => handleDelete(item.id)}
                 />
               </div>
@@ -114,7 +114,7 @@ export default function CartItems({ cartData }) {
           );
         })}
       </div>
-      <div className=' flex flex-col gap-4 '>
+      <div className=' flex flex-col gap-4 w-full'>
         {couponData?.[0]?.isCouponApplied !== true && <ApplyCoupon />}
         {couponData?.[0]?.isCouponApplied && <CouponDiscount />}
 
@@ -128,7 +128,7 @@ export default function CartItems({ cartData }) {
         totalCartPrice={totalCartPrice}
         updatedCartPrice={updatedCartPrice}
       />
-      <div className=' flex justify-center flex-col gap-6'>
+      <div className=' flex justify-center flex-col gap-4 w-full'>
         <Button
           type='checkout'
           onClick={(e) => handleClickCheckOut(e)}
@@ -143,7 +143,7 @@ export default function CartItems({ cartData }) {
           disabled={isLoading}
         >
           Clear
-          <FaTrash className=' text-sm' />
+          <FaTrash className=' text-xs mb-1' />
         </Button>
       </div>
     </>

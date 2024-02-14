@@ -11,9 +11,9 @@ export default function ApplyCoupon() {
   }
 
   return (
-    <div className=' flex flex-col gap-6'>
+    <div className=' flex flex-col gap-3 w-full'>
       <button
-        className=' flex items-center gap-1 p-2 rounded-md font-medium justify-center  outline-dashed outline-1  outline-Grey text-sm uppercase text-DarkGrey hover:shadow-md'
+        className=' flex items-center gap-1 p-2 justify-center rounded-md font-medium  w-full outline-dashed outline-1 outline-Grey text-sm uppercase text-DarkGrey hover:shadow-md'
         onClick={(e) => handleApplyCoupon(e)}
       >
         <BiSolidOffer />

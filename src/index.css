@@ -27,16 +27,6 @@ input::-webkit-inner-spin-button {
   z-index: 100;
 }
 
-.num-of-items {
-  width: 1.2rem;
-  height: 1.2rem;
-  background-color: #ad220f;
-  position: absolute;
-  left: 1.2rem;
-  top: -0.3rem;
-  border-radius: 100%;
-}
-
 .button {
   display: inline-block;
   width: 48px;
@@ -104,21 +94,6 @@ input::-webkit-inner-spin-button {
   to {
     transform: rotate(2turn);
   }
-}
-
-.open {
-  position: absolute;
-  top: 120px;
-  z-index: 20;
-  right: 0;
-  transition: all 0.3s ease-out;
-}
-
-.close {
-  top: 120px;
-  right: -650px;
-  position: absolute;
-  transition: all 0.3s ease-in;
 }
 
 .buttonCheckout::before {

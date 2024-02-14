@@ -29,22 +29,22 @@ export default function SignUp() {
   return (
     <>
       <Container>
-        <div className=' flex shadow-xl h-screen justify-center items-center'>
-          <div className=' flex bg-White '>
-            <div className=' flex flex-col p-24  gap-6'>
-              <div className=' flex flex-col gap-6 min-w-[450px] box-content'>
-                <div className=' flex flex-col gap-6'>
-                  <Logo size='w-[120px]' />
+        <div className=' flex shadow-xl h-screen justify-center items-center p-6'>
+          <div className=' flex bg-White'>
+            <div className=' flex flex-col gap-2'>
+              <div className=' flex flex-col gap-3 box-content'>
+                <div className=' flex flex-col gap-3'>
+                  <Logo size='w-[100px]' />
                   <FormMessage
                     title={'Feast Mode 🤤'}
                     message={'Your Passport to Tasty Discoveries Starts Here!'}
                   />
                 </div>
                 <form
-                  className=' flex flex-col gap-12 '
+                  className=' flex flex-col gap-6 '
                   onSubmit={handleSubmit(onSubmit)}
                 >
-                  <div className=' flex flex-col gap-6'>
+                  <div className=' flex flex-col gap-3'>
                     <Input
                       title={'Full Name'}
                       id={'fullName'}

@@ -57,25 +57,23 @@ export default function Filter() {
   }, [isBtnOn, searchParams, setSearchParams]);
 
   return (
-    <div className='  flex flex-col gap-4 bg-white px-24 py-6  w-full z-10 shadow-[0px_4px_10px_0px_rgba(0,0,0,0.06)]'>
+    <div className='  flex flex-col gap-6 bg-white px-4 py-6  w-full z-10 shadow-[0px_4px_10px_0px_rgba(0,0,0,0.06)]'>
       <h2 className='text-xl font-bold text-DarkGrey'>Filters</h2>
-      <div className=' flex  items-center justify-between '>
-        <div className=' flex  gap-12 '>
-          <Switch
-            handleVegClick={handleVegClick}
-            isBtnOn={isBtnOn}
-            color={'green'}
-            title={'veg'}
-          />
-          <Switch
-            handleNonVegClick={handleNonVegClick}
-            isBtnOn={isBtnOn}
-            color={'red'}
-            title={'nonVeg'}
-          />
-          <StarRating />
-          <Range />
-        </div>
+      <div className=' flex flex-wrap gap-12 gap-y-6 items-center'>
+        <Switch
+          handleVegClick={handleVegClick}
+          isBtnOn={isBtnOn}
+          color={'green'}
+          title={'veg'}
+        />
+        <Switch
+          handleNonVegClick={handleNonVegClick}
+          isBtnOn={isBtnOn}
+          color={'red'}
+          title={'nonVeg'}
+        />
+        <StarRating />
+        <Range />
         <SortBy
           options={[
             { value: 'default', label: 'Sort By' },

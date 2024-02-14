@@ -6,9 +6,9 @@ export default function ProfileSettings() {
     top: 0,
   });
   return (
-    <div className=' flex flex-col items-center px-24 py-24 '>
-      <div className=' h-[120px]'></div>
-      <div className=' flex flex-col gap-24'>
+    <div className=' flex flex-col p-4 '>
+      <div className=' h-[80px]'></div>
+      <div className=' flex flex-col gap-12'>
         <UpdatePicture />
         <UpdatePassword />
       </div>

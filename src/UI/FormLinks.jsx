@@ -7,12 +7,12 @@ export default function FormLinks({ form }) {
 
   if (form === 'login')
     return (
-      <div className=' text-Grey flex flex-col gap-1'>
+      <div className=' text-Grey flex flex-col text-sm'>
         <p>
           Don't have an account?{' '}
           <span
             onClick={() => navigate('/sign-up')}
-            className=' font-semibold text-blue-500 hover:underline cursor-pointer ml-1'
+            className=' font-semibold text-blue-500 hover:underline cursor-pointer'
           >
             Sign Up
           </span>
@@ -28,12 +28,12 @@ export default function FormLinks({ form }) {
 
   if (form === 'signup' || form === 'reset')
     return (
-      <div className=' text-Grey flex flex-col gap-1'>
+      <div className=' text-Grey flex flex-col gap-1 text-sm'>
         <p>
           Already have an account?{' '}
           <span
             onClick={() => navigate('/login')}
-            className=' font-semibold text-blue-500 hover:underline cursor- ml-1'
+            className=' font-semibold text-blue-500 hover:underline cursor-pointer'
           >
             Sign In
           </span>

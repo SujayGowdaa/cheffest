@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-import { HiMiniStar } from "react-icons/hi2";
+import { HiMiniStar } from 'react-icons/hi2';
 
-export default function Rating({ rating = 0, size = "sm" }) {
+export default function Rating({ rating = 0, size = 'sm' }) {
   const length = 5;
   return (
-    <div className=" flex">
+    <div className=' flex'>
       {[...Array(length)].map((_, i) => {
         let full = rating > i;
 

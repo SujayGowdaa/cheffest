@@ -7,17 +7,15 @@ import Price from './Price';
 import Name from './Name';
 import Description from './Description';
 import Ingredients from './Ingredients';
-import Ratings from './Ratings';
-import TypeNonVeg from './TypeNonVeg';
 import Image from './Image';
-import TypeVeg from './TypeVeg';
-import Category from './Category';
 import MealCount from './MealCount.JSX';
 import SmallLoader from '../../../UI/SmallLoader';
+import MealStickers from '../../../UI/MealStickers';
 
 import { useAppContext } from '../../../store/AppContext';
 import { useCart } from '../../Cart/useCart';
 import { useMeals } from '../useMeals';
+import { cuisine, nonVeg, star, veg } from '../../../Utils/GlobalConst';
 
 export default function MealDetails() {
   const { mealItems, isLoading } = useMeals();
@@ -34,44 +32,77 @@ export default function MealDetails() {
     );
 
   return (
-    <div className=' flex flex-col max-w-max h-screen'>
+    <div className=' flex flex-col h-screen'>
       {/* <div className=' w-full h-[120px] '></div> */}
       {mealItems?.map((item) => {
         return (
           <div
             key={item.id}
-            className=' flex flex-col justify-center items-center gap-6 p-24 h-screen'
+            className=' flex flex-col justify-center items-center gap-6 p-4 h-screen'
           >
-            <div className=' flex gap-16 items-center '>
-              <Image size='50' image={item.image} name={item.name} />
-              <div className=' flex flex-col w-[50%] gap-8'>
-                <div className=' flex flex-col gap-4'>
+            {console.log(item)}
+            <div className=' flex flex-col gap-6 items-center justify-center'>
+              <Image size='w-[300px]' image={item.image} name={item.name} />
+              <div className=' flex flex-col gap-4'>
+                <div className=' flex flex-col gap-2'>
                   <div className=' flex justify-between'>
                     <Name name={item.name} />
                     {isCartLoading ? (
                       <SmallLoader showLoading={false} />
                     ) : (
                       <FaWindowClose
-                        className=' text-4xl h-full cursor-pointer text-Grey'
+                        className=' text-xl h-full cursor-pointer text-Grey'
                         onClick={() => navigate(-1)}
                       />
                     )}
                   </div>
                   <Description description={item.description} />
+                  <Ingredients ingredients={item.ingredients} />
                 </div>
-                <Ingredients ingredients={item.ingredients} />
-
-                <div className=' flex flex-wrap gap-y-6 gap-12 justify-between'>
+                <div className=' flex flex-wrap gap-y-3 gap-6'>
                   {item.type === 'veg' ? (
-                    <TypeVeg type={item.type} />
+                    <MealStickers
+                      title={item.type}
+                      image={veg}
+                      alt={item.type}
+                      type={'veg'}
+                      padding='p-[6px]'
+                      width='w-[30px]'
+                      height='h-[30px]'
+                    />
                   ) : (
-                    <TypeNonVeg type={item.type} />
+                    <MealStickers
+                      title={item.type}
+                      image={nonVeg}
+                      alt={item.type}
+                      type={'non-veg'}
+                      padding='p-[6px]'
+                      width='w-[30px]'
+                      height='h-[30px]'
+                    />
                   )}
-                  <Category category={item.category} />
-                  <Ratings rating={item.rating} />
+                  <MealStickers
+                    title={item.category}
+                    image={cuisine}
+                    alt={item.category}
+                    type={'cuisine'}
+                    padding='p-[6px]'
+                    width='w-[30px]'
+                    height='h-[30px]'
+                  />
+                  <MealStickers
+                    image={star}
+                    alt={item.rating}
+                    rating={item.rating}
+                    type={'star'}
+                    gap='gap-2'
+                    padding='p-[6px]'
+                    width='w-[30px]'
+                    height='h-[30px]'
+                  />
                 </div>
                 <Price price={item.price} />
-                <div className='flex items-start gap-6 flex-wrap'>
+                <div className='flex flex-col items-start gap-4'>
                   <MealCount cartData={cartData} item={item} />
                   <ButtonCart id={item.id} item={item} />
                 </div>

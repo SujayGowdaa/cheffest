@@ -29,9 +29,9 @@ export default function ResetPassword() {
     <>
       <Container>
         <div className=' flex shadow-xl h-screen justify-center items-center'>
-          <div className=' flex  bg-White '>
-            <div className=' flex flex-col p-24  gap-6'>
-              <div className=' flex flex-col gap-6 min-w-[450px] box-content'>
+          <div className=' flex bg-White p-4 '>
+            <div className=' flex flex-col gap-4'>
+              <div className=' flex flex-col gap-3 box-content'>
                 <Logo size={'w-[120px]'} />
                 <FormMessage
                   title={"Let's get you back"}

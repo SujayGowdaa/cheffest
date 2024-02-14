@@ -41,50 +41,52 @@ export default function OrderForm() {
   }
 
   return (
-    <div className=' h-screen w-screen flex flex-col justify-center items-center'>
-      <div className=' h-[120px]'></div>
-      <div className=' flex flex-col gap-12 outline outline-1 bg-White outline-Grey/40 rounded-xl p-24 shadow-lg'>
-        <FormMessage
-          title={'Place your order'}
-          message={'Only one step away to enjoy the tasty meal...'}
-        />
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className=' flex flex-col gap-12 w-[500px]'
-        >
-          <div className=' flex flex-col gap-6 w-[500px]'>
-            <Input
-              title={'Full Name'}
-              id={'fullName'}
-              placeholder={'Your name'}
-              register={register('fullName', {
-                required: 'This field is required',
-              })}
-              errors={errors}
-            />
-            <Input
-              title={'Phone Number'}
-              id={'phoneNumber'}
-              type={'number'}
-              placeholder={'Your number'}
-              register={register('phoneNumber')}
-            />
-            <Input
-              title={'Address'}
-              id={'address'}
-              placeholder={'Your Address'}
-              register={register('address', {
-                required: 'This field is required',
-              })}
-              errors={errors}
-            />
-          </div>
-          <Button isPending={isPending} disabled={isPending} type='checkout'>
-            Order
-          </Button>
-        </form>
+    <>
+      <div className=' h-screen w-screen flex flex-col items-center justify-center'>
+        <div className=' h-[60px]'></div>
+        <div className=' flex flex-col gap-4 outline outline-1 bg-White outline-Grey/40 rounded-xl p-8 shadow-lg'>
+          <FormMessage
+            title={'Place your order'}
+            message={'Only one step away to enjoy the tasty meal...'}
+          />
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className=' flex flex-col gap-6'
+          >
+            <div className=' flex flex-col gap-3'>
+              <Input
+                title={'Full Name'}
+                id={'fullName'}
+                placeholder={'Your name'}
+                register={register('fullName', {
+                  required: 'This field is required',
+                })}
+                errors={errors}
+              />
+              <Input
+                title={'Phone Number'}
+                id={'phoneNumber'}
+                type={'number'}
+                placeholder={'Your number'}
+                register={register('phoneNumber')}
+              />
+              <Input
+                title={'Address'}
+                id={'address'}
+                placeholder={'Your Address'}
+                register={register('address', {
+                  required: 'This field is required',
+                })}
+                errors={errors}
+              />
+            </div>
+            <Button isPending={isPending} disabled={isPending} type='checkout'>
+              Order
+            </Button>
+          </form>
+        </div>
+        <BackgroundCover loginBanner01={loginBanner01} />
       </div>
-      <BackgroundCover loginBanner01={loginBanner01} />
-    </div>
+    </>
   );
 }

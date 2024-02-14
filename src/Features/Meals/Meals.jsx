@@ -9,22 +9,20 @@ export default function Meals() {
   const mealLength = mealItems?.length || 0;
 
   return (
-    <div className=' flex flex-col gap-12 px-24 py-12  w-[100%] justify-between bg-white '>
-      <div className=' flex justify-between items-center'>
-        <div className=' flex items-center gap-4'>
-          <h1 className=' text-2xl font-bold text-DarkGrey  '>
-            Popular Dishes
-          </h1>
+    <div className=' flex flex-col gap-4 w-[100%] justify-between bg-white '>
+      <div className=' flex justify-between items-center px-4'>
+        <div className=' flex items-center gap-2'>
+          <h1 className=' text-xl font-bold text-DarkGrey  '>Popular Dishes</h1>
           {isLoadingMeals && <SmallLoader showLoading={false} />}
         </div>
-        <p className=' text-Grey text-sm font-medium'>
+        <p className=' text-Grey text-xs font-medium'>
           Meals found :{' '}
-          <span className=' text-xl text-Green font-semibold'>
+          <span className=' text-lg text-Green font-semibold'>
             {mealLength < 10 ? `0${mealLength}` : mealLength}
           </span>
         </p>
       </div>
-      <div className=' flex flex-wrap justify-around gap-x-6 gap-y-16'>
+      <div className=' flex flex-wrap justify-around gap-x-2 gap-y-6  pb-12'>
         {mealItems?.length === 0 ? <NoData /> : <MealItem />}
       </div>
     </div>

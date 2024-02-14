@@ -31,13 +31,13 @@ export default function Cart() {
   return (
     <>
       <div
-        className={`${isCartOpen ? 'open' : 'close'} inline-block p-20 bg-White right-0  text-DarkGrey  shadow-xl h-screen pointer-events-auto overflow-scroll pb-[220px]`}
+        className={`${isCartOpen ? 'open right-0' : 'close right-[-576px]'} transition-all duration-300 absolute z-20 inline-block p-4 bg-White right-0 w-full text-DarkGrey shadow-xl h-screen pointer-events-auto overflow-scroll pb-[220px]`}
       >
-        <div className=' cursor-default flex text-3xl mb-8 gap-6 justify-between'>
-          <h2 className=' text-2xl font-bold capitalize '>My orders</h2>
+        <div className=' cursor-default flex mb-6 gap-6 justify-between'>
+          <h2 className=' text-xl font-bold capitalize  '>My orders</h2>
           {isCartLoading && <SmallLoader showLoading={false} />}
         </div>
-        <div className=' flex flex-col gap-12'>
+        <div className=' flex flex-col justify-center items-center gap-8'>
           {cartData?.length < 1 ? (
             <NoData />
           ) : (
@@ -47,7 +47,7 @@ export default function Cart() {
       </div>
       {isCartOpen && (
         <div
-          className=' pointer-events-auto cursor-pointer h-screen bg-black/20 backdrop-blur-[2px] transition duration-300'
+          className='pointer-events-auto cursor-pointer h-screen bg-black/20 backdrop-blur-[2px] transition duration-300 hidden sm:block'
           onClick={handleCloseCart}
         ></div>
       )}

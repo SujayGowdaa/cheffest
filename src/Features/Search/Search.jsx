@@ -35,28 +35,28 @@ export default function SearchInput() {
 
   return (
     <>
-      <div className=' w-full h-[120px]'></div>
-      <div className=' h-screen overflow-scroll'>
-        <div className=' flex justify-center items-center p-24  flex-col gap-12 '>
+      <div className=' w-full h-[60px]'></div>
+      <div className=' h-screen w-screen'>
+        <div className=' flex justify-center items-center  p-12 flex-col gap-8 w-full'>
           <div
-            className={`flex justify-center items-center text-MediumGrey ${isClicked && 'outline outline-[3px] outline-Orange rounded-md '}`}
+            className={`flex text-MediumGrey  w-full ${isClicked && 'outline outline-[2px] outline-Orange rounded-md '}`}
             onClick={() => setIsClicked(true)}
             onBlur={() => setIsClicked(false)}
           >
             <input
-              className=' p-3 px-4 bg-LightGrey rounded-md rounded-r-none w-[600px] focus-visible:outline-none text-xl text-DarkGrey font-medium h-[50px]'
+              className='p-3 bg-LightGrey rounded-md rounded-r-none  focus-visible:outline-none text-lg text-DarkGrey font-medium h-[40px] w-full'
               type='text'
               onChange={(e) => handleChange(e)}
             />
             <IoHome
-              className=' text-4xl cursor-pointer rounded-l-none text-Grey hover:text-MediumGrey transition duration-200 bg-LightGrey p-3 w-[50px] h-[50px] rounded-md'
+              className=' text-4xl cursor-pointer rounded-l-none text-Grey hover:text-MediumGrey transition duration-200 bg-LightGrey p-1 w-[40px] h-[40px] rounded-md'
               onClick={handleClick}
             />
           </div>
           {input === '' && <SearchMessage />}
           {isLoading && <LoadingScreen />}
           {input !== '' && !isLoading && (
-            <div className=' flex flex-wrap justify-around gap-x-6 gap-y-16 '>
+            <div className=' flex flex-wrap justify-center gap-x-4 gap-y-8 '>
               {searchResults?.length === 0 ? (
                 <NoSearchData />
               ) : (

@@ -6,7 +6,7 @@ export default function Switch({
   isBtnOn,
 }) {
   function handleClick() {
-    if (title === "veg") {
+    if (title === 'veg') {
       handleVegClick();
     } else {
       handleNonVegClick();
@@ -14,12 +14,12 @@ export default function Switch({
   }
 
   return (
-    <div className=" flex flex-col gap-2" onClick={handleClick}>
-      <h3 className=" text-MediumGrey text-sm font-medium capitalize">
+    <div className=' flex flex-col gap-2' onClick={handleClick}>
+      <h3 className=' text-MediumGrey text-xs font-medium capitalize'>
         {title}
       </h3>
       <div
-        className={` button ${title === "veg" && isBtnOn.veg && "veg"} ${title === "nonVeg" && isBtnOn.nonVeg && "nonVeg"}`}
+        className={` button ${title === 'veg' && isBtnOn.veg && 'veg'} ${title === 'nonVeg' && isBtnOn.nonVeg && 'nonVeg'}`}
       ></div>
     </div>
   );

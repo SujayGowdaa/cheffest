@@ -8,7 +8,7 @@ export default function CartTotal({
   updatedCartPrice,
 }) {
   return (
-    <div className=' flex flex-col gap-2 bg-LightGrey/60 p-4 rounded-md  '>
+    <div className=' flex flex-col gap-2 bg-LightGrey/60 p-4 rounded-md w-full '>
       {isCouponApplied && (
         <div>
           <div className=' text-sm text-Grey flex justify-between items-center'>
@@ -25,13 +25,13 @@ export default function CartTotal({
         </div>
       )}
       <div className=' flex justify-between items-center'>
-        <span className='  text-sm font-semibold text-MediumGrey'>
+        <span className='  text-xs font-semibold text-MediumGrey'>
           Total Amount:
         </span>
 
         <div className=' flex gap-1'>
-          <span className=' text-1xs font-semibold text-Orange'>₹</span>
-          <span className=' text-2xl text-Black font-bold'>
+          <span className=' font-semibold text-Orange'>₹</span>
+          <span className=' text-xl text-Black font-bold'>
             {currencyFormatter(updatedCartPrice || totalCartPrice)}
           </span>
         </div>

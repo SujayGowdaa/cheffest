@@ -19,12 +19,12 @@ export default function UpdatePassword() {
   }
 
   return (
-    <div className=' flex flex-col gap-12 min-w-[450px] '>
-      <h1 className=' text-center text-MediumGrey font-semibold text-3xl capitalize'>
+    <div className=' flex flex-col gap-4 outline outline-1 rounded-md outline-Grey/30 p-8 '>
+      <h1 className=' text-Black font-semibold text-xl  uppercase'>
         Update Password
       </h1>
-      <form className=' flex flex-col gap-12' onSubmit={handleSubmit(onSubmit)}>
-        <div className=' flex flex-col gap-12'>
+      <form className=' flex flex-col gap-6' onSubmit={handleSubmit(onSubmit)}>
+        <div className=' flex flex-col gap-4'>
           <Input
             title={'Password'}
             id={'password'}

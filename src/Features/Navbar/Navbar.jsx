@@ -23,34 +23,32 @@ export default function Navbar() {
   }
 
   return (
-    <header className='pointer-events-auto outline:LightGrey flex h-[120px] items-center justify-between border-b-[3px] border-LightGrey px-24 bg-White '>
+    <header className='pointer-events-auto outline:LightGrey flex h-[60px] items-center justify-between border-b-[2px] border-LightGrey px-2 bg-White '>
       <div>
         <Link to={'/'}>
-          <Logo size='w-[120px]' />
+          <Logo size='w-[60px]' />
         </Link>
       </div>
-      <div>
-        <div className=' flex items-center gap-12 '>
-          <div className=' flex gap-6'>
-            <FiSearch
-              className=' text-Grey cursor-pointer text-3xl'
-              onClick={handleSearch}
-            />
+      <div className=' flex items-center  gap-6 '>
+        <div className=' flex gap-3'>
+          <FiSearch
+            className=' text-Grey cursor-pointer text-2xl'
+            onClick={handleSearch}
+          />
 
-            <div className=' relative'>
-              <span className='num-of-items flex items-center justify-center text-sm font-medium text-White '>
-                {cartLength}
-              </span>
-              <FiShoppingCart
-                className=' text-Grey cursor-pointer text-3xl '
-                onClick={handleClickCart}
-              />
-            </div>
-          </div>
           <div className=' relative'>
-            <UserDetails />
-            <Menu />
+            <span className=' w-4 h-4 bg-DarkRed right-[-6px] top-[-4px] absolute rounded-full flex items-center justify-center text-xs font-medium text-White '>
+              {cartLength}
+            </span>
+            <FiShoppingCart
+              className=' text-Grey cursor-pointer text-2xl '
+              onClick={handleClickCart}
+            />
           </div>
+        </div>
+        <div className=' relative self-end'>
+          <UserDetails />
+          <Menu />
         </div>
       </div>
     </header>

@@ -2,7 +2,6 @@
 /* eslint-disable react/prop-types */
 
 import { IoIosAddCircle, IoIosRemoveCircle } from 'react-icons/io';
-
 import { useCart } from '../Features/Cart/useCart';
 import { useAppContext } from '../store/AppContext';
 import { useCouponRemover } from '../Utils/useCouponRemover';
@@ -36,9 +35,9 @@ export default function ButtonCart({ item }) {
     <button
       disabled={isCartLoading}
       onClick={(e) => handleClick(item, e)}
-      className={`disabled:cursor-not-allowed flex w-full items-center justify-center gap-2 rounded-md border-2  py-2 px-6 text-White shadow-md  transition duration-100 active:scale-100 ${isInCart ? 'border-DarkRed bg-Red' : 'border-DarkGreen bg-Green'}`}
+      className={`disabled:cursor-not-allowed flex w-full items-center justify-center gap-1 rounded-md border-2 py-1 text-White shadow-md transition duration-100 active:scale-100 ${isInCart ? 'border-DarkRed bg-Red' : 'border-DarkGreen bg-Green'}`}
     >
-      <span className=' font-medium '>
+      <span className=' font-medium text-sm'>
         {isInCart ? 'Remove' : 'Add to cart'}
       </span>
       {isInCart ? <IoIosRemoveCircle /> : <IoIosAddCircle />}

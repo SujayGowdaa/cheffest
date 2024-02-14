@@ -9,10 +9,10 @@ export default function UserDetails() {
 
   return (
     <div
-      className='text-md flex items-center gap-2 cursor-pointer select-none'
+      className='text-xs flex items-center gap-2 cursor-pointer select-none '
       onClick={(e) => handleClick(e)}
     >
-      <div className=' w-[50px] h-[50px] overflow-hidden rounded-full'>
+      <div className=' w-[30px] h-[30px] overflow-hidden rounded-full'>
         <img src={avatar} alt='placeholder' />
       </div>
 
