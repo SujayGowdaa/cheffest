@@ -1,10 +1,12 @@
 import { useAppContext } from '../../store/AppContext';
 
 export default function UserDetails() {
-  const { isMenuOpen, setIsMenuOpen, userName, avatar } = useAppContext();
+  const { isMenuOpen, setIsMenuOpen, userName, avatar, setIsCartOpen } =
+    useAppContext();
   function handleClick(e) {
     e.stopPropagation();
     setIsMenuOpen(!isMenuOpen);
+    setIsCartOpen(false);
   }
 
   return (
