@@ -24,12 +24,13 @@ export default function SortBy({ options }) {
   }
 
   return (
-    <div>
+    <div className=' flex flex-col gap-2  sm:gap-3'>
+      <h3 className=' text-Grey text-xs font-medium sm:text-base'>Sort By</h3>
       <select
         name='Sort By'
         value={sortBy || ''}
         onChange={(e) => handleChange(e.target.value)}
-        className=' h-8 rounded-md bg-LightGrey px-3 text-sm font-light text-MediumGrey focus:outline-none cursor-pointer sm:px-4 sm:text-base'
+        className=' h-8 rounded-md bg-LightGrey px-3 text-sm font-light text-MediumGrey focus:outline-none cursor-pointer sm:px-4  '
       >
         {options.map((op) => (
           <option className=' cursor-pointer' key={op.label} value={op.value}>

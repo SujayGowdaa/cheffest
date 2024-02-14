@@ -5,16 +5,14 @@ export default {
     fontFamily: {
       sans: ['Poppins', 'sans-serif'],
     },
-    screens: {
-      sm: '576px',
-      md: '768px',
-      lg: '992px',
-      xl: '1200px',
-      '2xl': '1440px',
-    },
+
     extend: {
       maxWidth: {
-        max: '1440px',
+        max: '1600px',
+      },
+      screens: {
+        sm: '576px',
+        md: '768px',
       },
       colors: {
         Red: '#f23115',

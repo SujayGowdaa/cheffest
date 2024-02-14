@@ -23,7 +23,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className='pointer-events-auto outline:LightGrey flex h-[60px] items-center justify-between border-b-[2px] border-LightGrey px-2 bg-White sm:px-12 sm:h-[80px] md:px-24 md:h-[100px]  '>
+    <header className='pointer-events-auto outline:LightGrey bottom-0 sticky flex h-[60px] items-center justify-between border-b-[2px] border-LightGrey px-2 bg-White sm:px-12 sm:h-[80px] md:px-24 md:h-[100px]  '>
       <div>
         <Link to={'/'}>
           <Logo size='w-[60px] sm:w-[80px] md:w-[100px] ' />

@@ -32,7 +32,7 @@ export default function StarRating({ maxRating = 5, curRating = 0 }) {
   }, [rating, searchParams, setSearchParams]);
 
   return (
-    <div className=' flex flex-col gap-2'>
+    <div className=' flex flex-col gap-2  sm:gap-3'>
       <h3 className=' text-Grey text-xs font-medium sm:text-base'>Rating</h3>
       <div className=' flex items-center gap-2'>
         <div className=' flex'>

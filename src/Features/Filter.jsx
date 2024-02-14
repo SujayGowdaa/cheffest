@@ -57,9 +57,9 @@ export default function Filter() {
   }, [isBtnOn, searchParams, setSearchParams]);
 
   return (
-    <div className='  flex flex-col gap-3 bg-white px-4 py-6  w-full z-10 shadow-[0px_4px_10px_0px_rgba(0,0,0,0.06)] sm:px-10 sm:py-8 md:px-24 md:py-12'>
-      <h2 className='text-xl font-bold text-DarkGrey sm:text-2xl'>Filters</h2>
-      <div className=' flex flex-wrap gap-x-12 gap-y-6 items-center sm:justify-between sm:gap-y-10 '>
+    <div className=' static top-[60px] flex flex-col gap-3 bg-white p-4 w-full z-10 shadow-[0px_4px_10px_0px_rgba(0,0,0,0.06)] lg:sticky sm:px-10 sm:py-8 sm:top-[80px] md:px-24  md:top-[100px]'>
+      <h2 className='text-xl font-bold text-DarkGrey sm:text-2xl '>Filters</h2>
+      <div className=' flex flex-wrap gap-x-12 gap-y-6 sm:justify-between sm:gap-y-10 '>
         <Switch
           handleVegClick={handleVegClick}
           isBtnOn={isBtnOn}
@@ -76,7 +76,6 @@ export default function Filter() {
         <Range />
         <SortBy
           options={[
-            { value: 'default', label: 'Sort By' },
             { value: 'price-asc', label: 'By Price | A-Z' },
             { value: 'price-desc', label: 'By Price | Z-A' },
           ]}

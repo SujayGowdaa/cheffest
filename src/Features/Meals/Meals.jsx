@@ -9,8 +9,8 @@ export default function Meals() {
   const mealLength = mealItems?.length || 0;
 
   return (
-    <div className=' flex flex-col gap-4 w-[100%]  bg-white md:gap-6'>
-      <div className=' flex justify-between items-center px-4 sm:px-10 md:px-24'>
+    <div className=' flex flex-col gap-4 w-[100%] px-4 py-4 bg-white md:gap-6 sm:px-10 sm:py-10 md:px-24'>
+      <div className=' flex justify-between items-center   '>
         <div className=' flex items-center gap-2 sm:gap-3 '>
           <h1 className=' text-xl font-bold text-DarkGrey sm:text-2xl'>
             Popular Dishes
@@ -24,7 +24,7 @@ export default function Meals() {
           </span>
         </p>
       </div>
-      <div className=' flex flex-wrap justify-evenly gap-x-2 gap-y-6 pb-12 sm:gap-x-4 sm:gap-y-8 sm:px-10 sm:py-2 md:px-12'>
+      <div className=' flex flex-wrap justify-evenly gap-x-2 gap-y-6 sm:gap-x-4 sm:gap-y-8 '>
         {mealItems?.length === 0 ? <NoData /> : <MealItem />}
       </div>
     </div>

@@ -28,10 +28,10 @@ export default function ResetPassword() {
   return (
     <>
       <Container>
-        <div className=' flex shadow-xl h-screen justify-center items-center p-6'>
-          <div className=' flex bg-White '>
+        <div className=' flex shadow-xl h-screen justify-center items-center p-6 lg:p-24 '>
+          <div className=' flex bg-White  lg:max-w-[1000px]'>
             <div className=' flex flex-col gap-2 sm:p-12 md:p-16'>
-              <div className=' flex flex-col gap-3 w-[300px]'>
+              <div className=' flex flex-col gap-3 w-[300px] '>
                 <Logo size={'w-[120px]'} />
                 <FormMessage
                   title={"Let's get you back"}

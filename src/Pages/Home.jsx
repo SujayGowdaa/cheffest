@@ -4,7 +4,7 @@ import Meals from '../Features/Meals/Meals';
 
 export default function Home() {
   return (
-    <main>
+    <main className=' flex flex-col justify-center items-center'>
       <Banner />
       <Filter />
       <Meals />
