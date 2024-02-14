@@ -11,7 +11,10 @@ export default function CouponDiscount() {
   }
 
   return (
-    <div className=' flex justify-between gap-6 outline outline-1 outline-Grey/50 p-4 rounded-md'>
+    <div
+      className=' flex justify-between gap-6 outline outline-1 outline-Grey/50 p-4 rounded-md'
+      onClick={(e) => e.stopPropagation()}
+    >
       <div className=' flex flex-col gap-1'>
         {data[0]?.calMethod === 'percentage' ? (
           <h3 className=' font-semibold text-Green text-[14px]'>{`${data[0]?.couponValue}${calMethod} OFF`}</h3>

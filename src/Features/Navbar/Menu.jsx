@@ -10,7 +10,7 @@ export default function Menu() {
 
   return (
     <div
-      className={` ${isMenuOpen ? ' inline-block' : 'hidden'} absolute z-50 top-[60px] right-0 rounded-md outline outline-[2px] outline-LightGrey overflow-hidden shadow-lg bg-White select-none`}
+      className={` ${isMenuOpen ? ' inline-block' : 'hidden'} absolute z-50 top-[45px] left-0 rounded-md outline outline-[1px] outline-Grey/50 overflow-hidden shadow-xl bg-White select-none sm:top-[60px]`}
       onClick={() => {
         setIsMenuOpen(!isMenuOpen);
         setIsCartOpen(false);

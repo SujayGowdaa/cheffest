@@ -48,7 +48,7 @@ export default function Button({
     return (
       <button
         disabled={disabled}
-        className={` flex gap-2  transition duration-200 p-3 text-sm px-6 bg-red-400 rounded-md text-red-700 font-semibold uppercase hover:text-red-800' ${disabled && ' cursor-not-allowed  disabled:text-Grey disabled:bg-LightGrey'}`}
+        className={` flex gap-2  transition duration-200 p-3 text-sm px-6 bg-red-400 rounded-md text-red-700 font-semibold uppercase hover:text-red-800  ${disabled && ' cursor-not-allowed  disabled:text-Grey disabled:bg-LightGrey'}`}
         type='button'
         onClick={onClick}
       >

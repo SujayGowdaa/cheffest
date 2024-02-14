@@ -35,36 +35,35 @@ export default function SearchInput() {
 
   return (
     <>
-      <div className=' w-full h-[60px]'></div>
-      <div className=' h-screen w-screen'>
-        <div className=' flex justify-center items-center  p-12 flex-col gap-8 w-full'>
-          <div
-            className={`flex text-MediumGrey  w-full ${isClicked && 'outline outline-[2px] outline-Orange rounded-md '}`}
-            onClick={() => setIsClicked(true)}
-            onBlur={() => setIsClicked(false)}
-          >
-            <input
-              className='p-3 bg-LightGrey rounded-md rounded-r-none  focus-visible:outline-none text-lg text-DarkGrey font-medium h-[40px] w-full'
-              type='text'
-              onChange={(e) => handleChange(e)}
-            />
-            <IoHome
-              className=' text-4xl cursor-pointer rounded-l-none text-Grey hover:text-MediumGrey transition duration-200 bg-LightGrey p-1 w-[40px] h-[40px] rounded-md'
-              onClick={handleClick}
-            />
-          </div>
-          {input === '' && <SearchMessage />}
-          {isLoading && <LoadingScreen />}
-          {input !== '' && !isLoading && (
-            <div className=' flex flex-wrap justify-center gap-x-4 gap-y-8 '>
-              {searchResults?.length === 0 ? (
-                <NoSearchData />
-              ) : (
-                <SearchItem searchResults={searchResults} />
-              )}
-            </div>
-          )}
+      <div className=' w-full h-[60px] sm:h-[80px] md:h-[100px]'></div>
+
+      <div className=' flex justify-center items-center p-12 flex-col gap-8 w-full sm:gap-12'>
+        <div
+          className={`flex text-MediumGrey w-full sm:w-[500px] sm:justify-center sm:items-center ${isClicked && 'outline outline-[2px] outline-Orange rounded-md '}`}
+          onClick={() => setIsClicked(true)}
+          onBlur={() => setIsClicked(false)}
+        >
+          <input
+            className='p-3 bg-LightGrey rounded-md rounded-r-none  focus-visible:outline-none text-lg text-DarkGrey font-medium h-[40px] w-full sm:w-[500px] sm:h-[50px] '
+            type='text'
+            onChange={(e) => handleChange(e)}
+          />
+          <IoHome
+            className=' text-4xl cursor-pointer rounded-l-none text-Grey hover:text-MediumGrey transition duration-200 bg-LightGrey p-1 w-[40px] h-[40px] rounded-md sm:p-2 sm:w-[50px] sm:h-[50px]'
+            onClick={handleClick}
+          />
         </div>
+        {input === '' && <SearchMessage />}
+        {isLoading && <LoadingScreen />}
+        {input !== '' && !isLoading && (
+          <div className=' flex flex-wrap justify-center gap-x-4 gap-y-8 '>
+            {searchResults?.length === 0 ? (
+              <NoSearchData />
+            ) : (
+              <SearchItem searchResults={searchResults} />
+            )}
+          </div>
+        )}
       </div>
     </>
   );

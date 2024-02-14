@@ -8,10 +8,10 @@ import Input from '../../UI/Input';
 import Logo from '../../UI/Logo';
 import FormCover from '../../UI/FormCover';
 import SmallLoader from '../../UI/SmallLoader';
-
-import { loginBanner01 } from '../../Utils/GlobalConst';
 import useResetPassword from './useResetPassword';
 import FormMessage from '../../UI/FormMessage';
+
+import { loginBanner01 } from '../../Utils/GlobalConst';
 
 export default function ResetPassword() {
   const {
@@ -28,10 +28,10 @@ export default function ResetPassword() {
   return (
     <>
       <Container>
-        <div className=' flex shadow-xl h-screen justify-center items-center'>
-          <div className=' flex bg-White p-4 '>
-            <div className=' flex flex-col gap-4'>
-              <div className=' flex flex-col gap-3 box-content'>
+        <div className=' flex shadow-xl h-screen justify-center items-center p-6'>
+          <div className=' flex bg-White '>
+            <div className=' flex flex-col gap-2 sm:p-12 md:p-16'>
+              <div className=' flex flex-col gap-3 w-[300px]'>
                 <Logo size={'w-[120px]'} />
                 <FormMessage
                   title={"Let's get you back"}

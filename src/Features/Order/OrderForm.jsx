@@ -9,6 +9,7 @@ import { loginBanner01 } from '../../Utils/GlobalConst';
 import { useUser } from '../Authentication/useUser';
 import { useNewOrder } from './useNewOrder';
 import { useAppContext } from '../../store/AppContext';
+import { toast } from 'sonner';
 
 export default function OrderForm() {
   const { user } = useUser();
@@ -37,21 +38,26 @@ export default function OrderForm() {
       address,
       cartDetails,
     };
-    newOrder(orderDetails);
+
+    if (Object.keys(orderDetails.cartDetails).length > 0) {
+      newOrder(orderDetails);
+    } else {
+      toast.error('You cart is empty');
+    }
   }
 
   return (
     <>
-      <div className=' h-screen w-screen flex flex-col items-center justify-center'>
-        <div className=' h-[60px]'></div>
-        <div className=' flex flex-col gap-4 outline outline-1 bg-White outline-Grey/40 rounded-xl p-8 shadow-lg'>
+      <div className=' w-screen h-screen flex flex-col items-center justify-center'>
+        <div className='h-[60px] sm:h-[80px] md:h-[100px]'></div>
+        <div className='flex flex-col overflow-auto w-screen gap-4 outline outline-1 bg-White outline-Grey/40 rounded-xl p-8 shadow-lg sm:h-auto sm:w-auto sm:p-10 md:p-12 '>
           <FormMessage
             title={'Place your order'}
             message={'Only one step away to enjoy the tasty meal...'}
           />
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className=' flex flex-col gap-6'
+            className=' flex flex-col gap-6 '
           >
             <div className=' flex flex-col gap-3'>
               <Input

@@ -44,10 +44,10 @@ const Login = () => {
       <Container>
         <div className=' flex shadow-xl h-screen justify-center items-center p-6 '>
           <div className=' flex bg-White '>
-            <div className=' flex flex-col gap-2'>
-              <div className=' flex flex-col gap-3'>
+            <div className=' flex flex-col gap-2 sm:p-12  md:p-16  '>
+              <div className=' flex flex-col gap-3 sm:w-[300px] md:gap-4'>
                 <div className=' flex flex-col gap-3'>
-                  <Logo size='w-[100px]' />
+                  <Logo size='w-[120px]' />
                   <FormMessage
                     title={'Savor the Moment'}
                     message={
@@ -59,7 +59,7 @@ const Login = () => {
                   className=' flex flex-col gap-6 '
                   onSubmit={handleSubmit(onSubmit)}
                 >
-                  <div className=' flex flex-col gap-3'>
+                  <div className=' flex flex-col gap-3 md:gap-4'>
                     <Input
                       title={'Email Address'}
                       id={'email'}

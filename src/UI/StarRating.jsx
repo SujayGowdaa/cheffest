@@ -33,8 +33,8 @@ export default function StarRating({ maxRating = 5, curRating = 0 }) {
 
   return (
     <div className=' flex flex-col gap-2'>
-      <h3 className=' text-MediumGrey text-xs font-medium'>Rating</h3>
-      <div className=' flex items-center  gap-2 '>
+      <h3 className=' text-Grey text-xs font-medium sm:text-base'>Rating</h3>
+      <div className=' flex items-center gap-2'>
         <div className=' flex'>
           {[...Array(maxRating)].map((_, i) => {
             const full = rating ? rating > i : curRating >= i + 1;

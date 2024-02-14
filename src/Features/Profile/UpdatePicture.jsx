@@ -37,9 +37,9 @@ export default function UpdatePicture() {
         </div>
         <label
           htmlFor='upload'
-          className=' cursor-pointer absolute bottom-[5px] right-[10px] bg-LightGrey flex items-center justify-center p-[12px] rounded-full shadow-md'
+          className=' cursor-pointer absolute bottom-[5px] right-[15px] bg-LightGrey flex items-center justify-center p-2 rounded-full shadow-md'
         >
-          <FaEdit className=' text-3xl relative right-[-2px] top-[-2px] text-Grey' />
+          <FaEdit className=' text-2xl relative right-[-2px] top-[-2px] text-Grey' />
           <input
             className=' hidden'
             id='upload'
@@ -48,7 +48,7 @@ export default function UpdatePicture() {
           />
         </label>
       </div>
-      <form className=' ' onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className=' flex gap-6 justify-between w-full'>
           <Button
             type={'file'}

@@ -45,13 +45,16 @@ export default function Range() {
   }, [price, searchParams, setSearchParams, minPrice]);
 
   return (
-    <div className=' flex flex-col'>
-      <h3 htmlFor='price' className=' text-MediumGrey text-xs font-medium'>
+    <div className=' flex flex-col sm:gap-2'>
+      <h3
+        htmlFor='price'
+        className=' text-Grey text-xs font-medium sm:text-base'
+      >
         Price
       </h3>
-      <div className=' flex flex-col'>
+      <div className=' flex flex-col sm:gap-1'>
         <div className=' flex items-center space-x-2'>
-          <span className=' w-8 text-Grey text-sm font-medium flex items-center'>
+          <span className=' w-8 text-Grey text-sm font-medium flex items-center sm:text-base'>
             {price < 100 ? `0${price}` : price}
           </span>
           <input
@@ -66,12 +69,12 @@ export default function Range() {
             onChange={handleChange}
             disabled={isPriceLoading}
           />
-          <span className=' text-Grey text-sm  justify-center font-medium mt-auto flex  items-center'>
+          <span className=' text-Grey text-sm justify-center font-medium mt-auto flex items-center sm:text-base'>
             {maxPrice}
           </span>
         </div>
         {price < minPrice && (
-          <p className=' text-Red text-xs'>
+          <p className=' text-Red text-xs sm:text-sm'>
             sorry no meals under {`₹` + currencyFormatter(minPrice)}
           </p>
         )}

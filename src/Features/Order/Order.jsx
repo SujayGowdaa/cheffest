@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { Navigate } from 'react-router-dom';
 import { currencyFormatter } from '../../helper';
 
 export default function Order({
@@ -9,8 +10,10 @@ export default function Order({
   updatedCartPrice,
   id,
 }) {
+  if (!cartItems) return <Navigate to={'/'} />;
+
   return (
-    <div className=' flex flex-col gap-4 items-center'>
+    <div className=' flex flex-col gap-4 items-center md:gap-6'>
       <h2 className=' text-Green text-xl font-bold uppercase text-center'>
         order details
       </h2>

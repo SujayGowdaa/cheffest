@@ -6,12 +6,7 @@ import SmallLoader from '../../UI/SmallLoader';
 import NoData from '../../UI/NoData';
 
 export default function Cart() {
-  const {
-    isCartOpen,
-    isCartLoading,
-
-    handleCloseCart,
-  } = useAppContext();
+  const { isCartOpen, isCartLoading, handleCloseCart } = useAppContext();
   const { data: cartData } = useCart();
 
   // Sorting the array of objects based on the 'name' property
@@ -28,13 +23,21 @@ export default function Cart() {
     return 0;
   });
 
+  function handleClickCloseCart(e) {
+    e.stopPropagation();
+    handleCloseCart();
+  }
+
   return (
     <>
       <div
-        className={`${isCartOpen ? 'open right-0' : 'close right-[-576px]'} transition-all duration-300 absolute z-20 inline-block p-4 bg-White right-0 w-full text-DarkGrey shadow-xl h-screen pointer-events-auto overflow-scroll pb-[220px]`}
+        className={`${isCartOpen ? 'open right-0' : 'close right-[-576px]'} transition-all duration-300 absolute z-20 inline-block p-4 bg-White right-0 w-full text-DarkGrey shadow-xl h-screen pointer-events-auto overflow-scroll pb-[100px] cursor-pointer sm:w-[400px] sm:pb-[140px] sm:p-10 md:w-[450px] md:p-12  `}
+        onClick={(e) => handleClickCloseCart(e)}
       >
         <div className=' cursor-default flex mb-6 gap-6 justify-between'>
-          <h2 className=' text-xl font-bold capitalize  '>My orders</h2>
+          <h2 className=' text-xl font-bold capitalize  md:text-2xl'>
+            My orders
+          </h2>
           {isCartLoading && <SmallLoader showLoading={false} />}
         </div>
         <div className=' flex flex-col justify-center items-center gap-8'>

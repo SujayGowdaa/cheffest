@@ -27,22 +27,22 @@ export default function OrderDetails() {
   } = currentOrder;
 
   return (
-    <div className=' flex flex-col h-screen w-screen p-4 gap-6'>
-      <div className=' h-[60px]'></div>
+    <div className=' flex flex-col w-screen p-4 gap-6 sm:p-10 items-center justify-center '>
+      <div className=' h-[60px] sm:h-[80px] md:h-[100px] '></div>
       <div className=' flex flex-col items-center gap-3'>
         <div className=' w-[200px] h-auto'>
           <img className=' w-auto' src={orderPlaced} alt='order placed' />
         </div>
         <div className=' flex flex-col items-center'>
-          <h1 className=' text-DarkGrey text-xl tracking-tight font-extrabold uppercase'>
+          <h1 className=' text-DarkGrey text-xl tracking-tight font-extrabold uppercase '>
             Yay! We have received your order
           </h1>
-          <p className=' text-Grey text-sm '>
+          <p className=' text-Grey text-base'>
             Your order will be devlivered soon...
           </p>
         </div>
       </div>
-      <div className=' flex flex-col gap-6  max-w-[800px] w-full '>
+      <div className=' flex flex-col gap-6 max-w-[800px] w-full '>
         <Order
           id={id}
           cartItems={cartItems}

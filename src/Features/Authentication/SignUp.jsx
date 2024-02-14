@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+
 import Container from '../../UI/Container';
 import FormMessage from '../../UI/FormMessage';
 import Logo from '../../UI/Logo';
@@ -31,10 +32,10 @@ export default function SignUp() {
       <Container>
         <div className=' flex shadow-xl h-screen justify-center items-center p-6'>
           <div className=' flex bg-White'>
-            <div className=' flex flex-col gap-2'>
-              <div className=' flex flex-col gap-3 box-content'>
-                <div className=' flex flex-col gap-3'>
-                  <Logo size='w-[100px]' />
+            <div className=' flex flex-col gap-2  sm:p-12 md:p-16'>
+              <div className=' flex flex-col gap-3 sm:w-[300px] '>
+                <div className=' flex flex-col gap-3 md:gap-6'>
+                  <Logo size='w-[120px]' />
                   <FormMessage
                     title={'Feast Mode 🤤'}
                     message={'Your Passport to Tasty Discoveries Starts Here!'}

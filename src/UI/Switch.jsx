@@ -15,7 +15,7 @@ export default function Switch({
 
   return (
     <div className=' flex flex-col gap-2' onClick={handleClick}>
-      <h3 className=' text-MediumGrey text-xs font-medium capitalize'>
+      <h3 className=' text-Grey text-xs font-medium capitalize sm:text-base'>
         {title}
       </h3>
       <div

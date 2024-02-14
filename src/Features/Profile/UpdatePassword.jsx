@@ -19,7 +19,7 @@ export default function UpdatePassword() {
   }
 
   return (
-    <div className=' flex flex-col gap-4 outline outline-1 rounded-md outline-Grey/30 p-8 '>
+    <div className=' flex flex-col gap-4 outline outline-1 rounded-md outline-Grey/30 p-8 min-w-[300px] sm:w-[400px] '>
       <h1 className=' text-Black font-semibold text-xl  uppercase'>
         Update Password
       </h1>
