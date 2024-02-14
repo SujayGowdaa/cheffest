@@ -12,7 +12,6 @@ export default function MealStickers({
   type,
   title,
 }) {
-  console.log(type);
   return (
     <div className={`flex ${gap} items-center`}>
       <div
