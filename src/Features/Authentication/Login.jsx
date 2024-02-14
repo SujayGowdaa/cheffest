@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 // eslint-disable-next-line no-unused-vars
-import Container from '../../ui/Container';
+
 import BackgroundCover from '../../UI/BackgroundCover';
+import ContainerUI from '../../UI/ContainerUI';
 import Input from '../../UI/Input';
 import Logo from '../../UI/Logo';
 import SmallLoader from '../../UI/SmallLoader';
@@ -41,7 +42,7 @@ const Login = () => {
 
   return (
     <>
-      <Container>
+      <ContainerUI>
         <div className=' flex shadow-xl h-screen justify-center items-center p-6 lg:p-24 '>
           <div className=' flex bg-White lg:max-w-[1000px]'>
             <div className=' flex flex-col gap-2 sm:p-12  md:p-16 '>
@@ -98,7 +99,7 @@ const Login = () => {
             <FormCover loginBanner01={loginBanner02} />
           </div>
         </div>
-      </Container>
+      </ContainerUI>
       <BackgroundCover loginBanner01={loginBanner02} />
     </>
   );

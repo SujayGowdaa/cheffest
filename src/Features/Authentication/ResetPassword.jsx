@@ -1,7 +1,6 @@
 import { useForm } from 'react-hook-form';
 
 import BackgroundCover from '../../UI/BackgroundCover';
-import Container from '../../UI/Container';
 import FormLinks from '../../UI/FormLinks';
 import Button from '../../UI/Button';
 import Input from '../../UI/Input';
@@ -12,6 +11,7 @@ import useResetPassword from './useResetPassword';
 import FormMessage from '../../UI/FormMessage';
 
 import { loginBanner01 } from '../../Utils/GlobalConst';
+import ContainerUI from '../../UI/ContainerUI';
 
 export default function ResetPassword() {
   const {
@@ -27,7 +27,7 @@ export default function ResetPassword() {
 
   return (
     <>
-      <Container>
+      <ContainerUI>
         <div className=' flex shadow-xl h-screen justify-center items-center p-6 lg:p-24 '>
           <div className=' flex bg-White  lg:max-w-[1000px]'>
             <div className=' flex flex-col gap-2 sm:p-12 md:p-16'>
@@ -68,7 +68,7 @@ export default function ResetPassword() {
             <FormCover loginBanner01={loginBanner01} />
           </div>
         </div>
-      </Container>
+      </ContainerUI>
       <BackgroundCover loginBanner01={loginBanner01} />
     </>
   );

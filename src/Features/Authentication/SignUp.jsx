@@ -1,6 +1,5 @@
 import { useForm } from 'react-hook-form';
 
-import Container from '../../UI/Container';
 import FormMessage from '../../UI/FormMessage';
 import Logo from '../../UI/Logo';
 import Input from '../../UI/Input';
@@ -10,6 +9,7 @@ import FormCover from '../../UI/FormCover';
 import BackgroundCover from '../../UI/BackgroundCover';
 import FormLinks from '../../UI/FormLinks';
 import useSignUp from './useSignUp';
+import ContainerUI from '../../UI/ContainerUI';
 
 import { loginBanner01 } from '../../Utils/GlobalConst';
 
@@ -29,7 +29,7 @@ export default function SignUp() {
 
   return (
     <>
-      <Container>
+      <ContainerUI>
         <div className=' flex shadow-xl h-screen overflow-y-auto justify-center items-center p-6 lg:p-24 '>
           <div className=' flex bg-White lg:max-w-[1000px]'>
             <div className=' flex flex-col gap-2 sm:p-12  md:p-16 '>
@@ -114,7 +114,7 @@ export default function SignUp() {
             <FormCover loginBanner01={loginBanner01} />
           </div>
         </div>
-      </Container>
+      </ContainerUI>
       <BackgroundCover loginBanner01={loginBanner01} />
     </>
   );
