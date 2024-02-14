@@ -8,7 +8,7 @@ import Name from './Name';
 import Description from './Description';
 import Ingredients from './Ingredients';
 import Image from './Image';
-import MealCount from './MealCount.JSX';
+import MealCount from './MealCount';
 import SmallLoader from '../../../UI/SmallLoader';
 import MealStickers from '../../../UI/MealStickers';
 
