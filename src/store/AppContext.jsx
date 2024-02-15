@@ -7,6 +7,8 @@ import { useDeleteItem } from '../Features/Cart/useClearCart';
 import { useRemoveFromCart } from '../Features/Cart/useRemoveFromCart';
 import { useAddToCart } from '../Features/Cart/useAddToCart';
 import { placeHolderImage } from '../Utils/GlobalConst';
+import { useEmptyCart } from '../Features/Order/useEmptyCart';
+import { useUser } from '../Features/Authentication/useUser';
 
 const Context = createContext();
 
@@ -16,21 +18,27 @@ export default function AppContext({ children }) {
   const { deleteItem, isPending: isDeleting } = useDeleteItem();
   const { addItem, isPending: isAdding } = useAddToCart();
   const { removeItem, isPending: isRemoving } = useRemoveFromCart();
+  const { emptyCart, isPending: isClearingCart } = useEmptyCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [userName, setUserName] = useState('');
   const [avatar, setAvatar] = useState(placeHolderImage);
   const [isCoupon, setCoupon] = useState(false);
-  const [isCouponApplicable, setIsCouponApplicable] = useState({
-    minBillValue: undefined,
-    isCouponApplicable: true,
+  const [isCouponApplicable, setIsCouponApplicable] = useState(() => {
+    return { minBillValue: 0, isCouponApplicable: true };
   });
   const [cartDetails, setCartDetails] = useState({});
   const [profile, setProfile] = useState();
   const [viewPortWidth, setViewPortWidth] = useState(window.innerWidth);
-
+  const { user } = useUser();
+  const isTestId = user?.id === '37691a1c-6750-4259-84f3-9ec6c3888034';
   const isCartLoading =
-    isDecreasing || isIncreasing || isDeleting || isAdding || isRemoving;
+    isDecreasing ||
+    isIncreasing ||
+    isDeleting ||
+    isAdding ||
+    isRemoving ||
+    isClearingCart;
 
   function handleCloseCart() {
     setIsCartOpen(false);
@@ -53,6 +61,9 @@ export default function AppContext({ children }) {
 
   function handleCheckOut() {
     setIsCartOpen(false);
+  }
+  function handleEmptyCart() {
+    emptyCart();
   }
 
   document.body.addEventListener('click', () => {
@@ -79,6 +90,7 @@ export default function AppContext({ children }) {
         handleCloseCart,
         handleDelete,
         handleAddItem,
+        handleEmptyCart,
         removeItem,
         isMenuOpen,
         setIsMenuOpen,
@@ -96,6 +108,7 @@ export default function AppContext({ children }) {
         profile,
         setProfile,
         viewPortWidth,
+        isTestId,
       }}
     >
       {children}
@@ -105,6 +118,7 @@ export default function AppContext({ children }) {
 
 export function useAppContext() {
   const context = useContext(Context);
-  if (!context) console.log('Please use context within the context provider.');
+  if (!context)
+    throw new Error('Please use context within the context provider.');
   return context;
 }

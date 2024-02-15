@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Button from '../../UI/Button';
 
 import { FaEdit } from 'react-icons/fa';
@@ -7,7 +8,7 @@ import { useRemovePicture } from './useRemovePicture';
 import { useAppContext } from '../../store/AppContext';
 import { placeHolderImage } from '../../Utils/GlobalConst';
 
-export default function UpdatePicture() {
+export default function UpdatePicture({ isTestId }) {
   const { updatePicture, isPending: isUploading } = useUpdatePicture();
   const { removePicture, isPending: isRemoving } = useRemovePicture();
   const { handleSubmit } = useForm();
@@ -41,7 +42,7 @@ export default function UpdatePicture() {
         >
           <FaEdit className=' text-2xl relative right-[-2px] top-[-2px] text-Grey' />
           <input
-            className=' hidden'
+            className={` hidden ${isTestId && ' cursor-not-allowed'}`}
             id='upload'
             type='file'
             onChange={(e) => setProfile(e.target.files[0])}
@@ -52,7 +53,7 @@ export default function UpdatePicture() {
         <div className=' flex gap-6 justify-between w-full'>
           <Button
             type={'file'}
-            disabled={isUploading || !profile}
+            disabled={isUploading || !profile || isTestId}
             isPending={isUploading}
           >
             Upload
@@ -60,7 +61,7 @@ export default function UpdatePicture() {
           <Button
             onClick={(e) => handleRemoveImage(e)}
             type={'remove'}
-            disabled={isRemoving || avatar === placeHolderImage}
+            disabled={isRemoving || avatar === placeHolderImage || isTestId}
             isPending={isRemoving}
           >
             Remove

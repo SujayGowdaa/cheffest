@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import { useForm } from 'react-hook-form';
 import Input from '../../UI/Input';
 import Button from '../../UI/Button';
 import SmallLoader from '../../UI/SmallLoader';
 import useUpdatePassword from './useUpdatePassword';
 
-export default function UpdatePassword() {
+export default function UpdatePassword({ isTestId }) {
   const {
     register,
     handleSubmit,
@@ -59,7 +60,7 @@ export default function UpdatePassword() {
             errors={errors}
           />
         </div>
-        <Button type={'login'} disabled={isPending}>
+        <Button type={'login'} disabled={isPending || isTestId}>
           Update password {isPending && <SmallLoader showLoading={false} />}
         </Button>
       </form>

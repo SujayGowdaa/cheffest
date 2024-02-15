@@ -12,7 +12,6 @@ import { currencyFormatter } from '../../helper';
 import { useAppContext } from '../../store/AppContext';
 import { useNavigate } from 'react-router-dom';
 import { useCoupon } from './useCoupon';
-import { useEmptyCart } from '../Order/useEmptyCart';
 
 export default function CartItems({ cartData }) {
   const {
@@ -21,12 +20,12 @@ export default function CartItems({ cartData }) {
     setIsCartOpen,
     isCouponApplicable,
     setCartDetails,
+    handleEmptyCart,
   } = useAppContext();
   const { data: couponData, isLoading } = useCoupon();
   const navigate = useNavigate();
   const { isCouponApplicable: isApplicable, minBillValue } = isCouponApplicable;
   const { isCouponApplied, couponValue, calMethod } = couponData?.[0] || [];
-  const { emptyCart } = useEmptyCart();
 
   let totalCartPrice = cartData
     ?.map((item) => item.totalPrice)
@@ -73,7 +72,7 @@ export default function CartItems({ cartData }) {
 
   function handleClickRemoveCart(e) {
     e.stopPropagation();
-    emptyCart();
+    handleEmptyCart();
   }
 
   return (
@@ -117,7 +116,6 @@ export default function CartItems({ cartData }) {
       <div className=' flex flex-col gap-4 w-full'>
         {couponData?.[0]?.isCouponApplied !== true && <ApplyCoupon />}
         {couponData?.[0]?.isCouponApplied && <CouponDiscount />}
-
         {!isApplicable && minBillValue !== undefined && (
           <p className=' text-xs text-Red'>{`Coupon only applicable for cart value above ₹${minBillValue}`}</p>
         )}
