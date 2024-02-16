@@ -43,8 +43,8 @@ const Login = () => {
   return (
     <>
       <ContainerUI>
-        <div className=' flex shadow-xl h-screen justify-center items-center p-6 lg:p-24 '>
-          <div className=' flex bg-White lg:max-w-[1000px]'>
+        <div className=' flex shadow-xl h-screen justify-center items-center  p-6 lg:p-24 '>
+          <div className=' flex bg-White lg:max-w-[1000px] '>
             <div className=' flex flex-col gap-2 sm:p-12  md:p-16 '>
               <div className=' flex flex-col gap-3 sm:w-[300px] md:gap-4'>
                 <div className=' flex flex-col gap-3'>

@@ -7,6 +7,10 @@ import { currencyFormatter } from '../helper';
 export default function Range() {
   const { mealPriceList, isLoading: isPriceLoading } = useMealPrice();
   const [searchParams, setSearchParams] = useSearchParams();
+  let maxPrice = 0;
+  if (!isPriceLoading) {
+    maxPrice = Math.max(...mealPriceList);
+  }
   const [price, setPrice] = useState(() => {
     if (searchParams.get('price')) {
       return searchParams.get('price');
@@ -20,10 +24,6 @@ export default function Range() {
     setPrice(Number(e.target.value));
   }
 
-  let maxPrice = 0;
-  if (!isPriceLoading) {
-    maxPrice = Math.max(...mealPriceList);
-  }
   let minPrice = 0;
   if (!isPriceLoading) {
     minPrice = Math.min(...mealPriceList);
@@ -73,7 +73,7 @@ export default function Range() {
             {maxPrice}
           </span>
         </div>
-        {price < minPrice && (
+        {price < minPrice && price !== 0 && (
           <p className=' text-Red text-xs sm:text-sm'>
             sorry no meals under {`₹` + currencyFormatter(minPrice)}
           </p>

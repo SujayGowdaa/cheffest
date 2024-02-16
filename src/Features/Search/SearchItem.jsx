@@ -5,8 +5,17 @@ import ButtonCart from '../../UI/ButtonCart';
 import Rating from '../../UI/Rating';
 
 import { currencyFormatter } from '../../helper';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 export default function SearchItem({ searchResults }) {
+  const [searchParamas, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+
+  function handleClickMeal(id) {
+    searchParamas.set('mealId', id);
+    setSearchParams(setSearchParams);
+    navigate(`/meals/${id}`);
+  }
   return (
     <>
       {searchResults?.map((item) => {
@@ -14,6 +23,7 @@ export default function SearchItem({ searchResults }) {
           <div
             key={item.name}
             className=' relative flex w-[160px] bg-White cursor-pointer flex-col rounded-xl border-[5px] border-White shadow-xl outline outline-2 outline-LightGrey transition duration-300 hover:scale-105 hover:shadow-2xl sm:w-[180px]'
+            onClick={() => handleClickMeal(item.id)}
           >
             <div className=' h-[135px] w-auto overflow-hidden rounded-xl'>
               <div

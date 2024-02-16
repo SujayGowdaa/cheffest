@@ -10,11 +10,12 @@ import { useUser } from '../Authentication/useUser';
 import { useNewOrder } from './useNewOrder';
 import { useAppContext } from '../../store/AppContext';
 import { toast } from 'sonner';
+import { useNavigate } from 'react-router-dom';
 
 export default function OrderForm() {
   const { user } = useUser();
   const { newOrder, isPending } = useNewOrder();
-  const { cartDetails } = useAppContext();
+  const { cartDetails, setIsCartOpen } = useAppContext();
 
   const {
     user_metadata: { fullName },
@@ -28,6 +29,12 @@ export default function OrderForm() {
     },
   });
   const { errors } = formState;
+  const navigate = useNavigate();
+
+  function handleCancleOrder() {
+    navigate(-1);
+    setIsCartOpen(true);
+  }
 
   function onSubmit(data) {
     const { fullName, phoneNumber, address } = data;
@@ -48,9 +55,9 @@ export default function OrderForm() {
 
   return (
     <>
-      <div className=' w-screen h-screen flex flex-col items-center justify-center'>
+      <div className=' w-full h-screen  flex flex-col items-center justify-center sm:bg-Black/40'>
         <div className='h-[60px] sm:h-[80px] md:h-[100px]'></div>
-        <div className='flex flex-col overflow-auto w-screen gap-4 outline outline-1 bg-White outline-Grey/40 rounded-xl p-8 shadow-lg sm:h-auto sm:w-auto sm:p-10 md:p-12 '>
+        <div className='flex flex-col overflow-auto w-screen gap-4 outline outline-1 bg-White outline-Grey/40 rounded-xl p-8 shadow-lg sm:h-auto sm:w-[570px] sm:p-10 md:p-12 '>
           <FormMessage
             title={'Place your order'}
             message={'Only one step away to enjoy the tasty meal...'}
@@ -86,9 +93,23 @@ export default function OrderForm() {
                 errors={errors}
               />
             </div>
-            <Button isPending={isPending} disabled={isPending} type='checkout'>
-              Order
-            </Button>
+            <div className=' flex justify-center flex-col gap-4 w-full'>
+              <Button
+                isPending={isPending}
+                disabled={isPending}
+                type='checkout'
+              >
+                Order
+              </Button>
+              <Button
+                isPending={isPending}
+                disabled={isPending}
+                type='cancle'
+                onClick={handleCancleOrder}
+              >
+                Cancle
+              </Button>
+            </div>
           </form>
         </div>
         <BackgroundCover loginBanner01={loginBanner01} />

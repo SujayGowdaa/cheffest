@@ -9,7 +9,7 @@ export default function Button({
   disabled,
   isPending,
 }) {
-  if (type === 'clear')
+  if (type === 'clear' || type === 'cancle')
     return (
       <button
         disabled={disabled}

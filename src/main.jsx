@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Toaster
       position='top-center'
       closeButton
-      duration={3000}
+      duration={1000}
       offset={'64px'}
     />
   </React.StrictMode>

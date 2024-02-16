@@ -2,7 +2,7 @@
 
 export default function BackgroundCover({ loginBanner01 }) {
   return (
-    <div className=' items-center h-screen w-screen overflow-hidden absolute z-[-10] top-0 hidden sm:flex'>
+    <div className=' items-center h-screen absolute z-[-10] top-0 hidden sm:flex overflow-hidden'>
       <img
         src={loginBanner01}
         alt='banner'

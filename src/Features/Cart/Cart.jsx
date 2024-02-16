@@ -31,7 +31,7 @@ export default function Cart() {
   return (
     <>
       <div
-        className={`${isCartOpen ? 'open right-0' : 'close right-[-576px]'} transition-all duration-300 absolute z-20 inline-block p-4 bg-White right-0 w-full text-DarkGrey shadow-xl h-screen pointer-events-auto overflow-scroll pb-[100px] cursor-pointer sm:w-[400px] sm:pb-[140px] sm:p-10 md:w-[450px] md:p-12  `}
+        className={`${isCartOpen ? 'open right-0' : 'close right-[-576px]'} transition-all duration-300 overflow-y-auto h-full absolute z-20 inline-block p-4 bg-White right-0 w-full text-DarkGrey shadow-xl pointer-events-auto pb-[100px] cursor-pointer sm:w-[400px] sm:pb-[140px] sm:p-10 md:w-[450px] md:p-12 md:pb-[160px] `}
         onClick={(e) => handleClickCloseCart(e)}
       >
         <div className=' cursor-default flex mb-6 gap-6 justify-between'>

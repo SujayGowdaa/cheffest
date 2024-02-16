@@ -27,7 +27,7 @@ export default function OrderDetails() {
   } = currentOrder;
 
   return (
-    <div className=' flex flex-col w-screen p-4 gap-6 sm:p-10 items-center justify-center '>
+    <div className=' flex flex-col w-full p-4 gap-6 sm:p-10 items-center justify-center '>
       <div className=' h-[60px] sm:h-[80px] md:h-[100px] '></div>
       <div className=' flex flex-col items-center gap-3'>
         <div className=' w-[200px] h-auto'>

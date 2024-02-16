@@ -37,7 +37,7 @@ export default function SearchInput() {
     <>
       <div className=' w-full h-[60px] sm:h-[80px] md:h-[100px]'></div>
 
-      <div className=' flex justify-center items-center p-12 flex-col gap-8 w-full sm:gap-12'>
+      <div className=' flex justify-center items-center p-4 flex-col gap-8 w-full sm:p-10 sm:gap-12 md:px-24'>
         <div
           className={`flex text-MediumGrey w-full sm:w-[500px] sm:justify-center sm:items-center ${isClicked && 'outline outline-[2px] outline-Orange rounded-md '}`}
           onClick={() => setIsClicked(true)}

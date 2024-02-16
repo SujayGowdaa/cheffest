@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { FaWindowClose } from 'react-icons/fa';
+import { IoClose } from 'react-icons/io5';
 
 import ButtonCart from '../../../UI/ButtonCart';
 import LoadingScreen from '../../../UI/LoadingScreen';
@@ -26,37 +26,35 @@ export default function MealDetails() {
   if (isLoading || isPending) return <LoadingScreen />;
 
   return (
-    <div className=' flex flex-col '>
-      <div className=' w-full h-[60px] sm:h-[80px] md:h-[100px] '></div>
+    <div className=' flex flex-col overflow-scroll p-4 w-full sm:p-10 md:px-24 lg:h-full justify-center'>
       {mealItems?.map((item) => {
         return (
           <div
             key={item.id}
-            className=' flex flex-col justify-center items-center gap-6 p-4 h-screen'
+            className=' flex flex-col justify-center items-center mx-auto pt-[60px] gap-6 md:pt-[100px] lg:pt-[40px]'
           >
-            <div className=' flex flex-col gap-6 items-center justify-center md:flex-row md:gap-12'>
+            <div className=' self-end '>
+              <IoClose
+                className=' text-3xl cursor-pointer text-Red md:text-4xl'
+                onClick={() => navigate('/')}
+              />
+            </div>
+            <div className=' flex flex-col gap-6 items-center justify-center lg:flex-row lg:gap-12'>
               <Image
-                size='w-[300px] md:w-[400px]'
+                size='w-[300px] lg:max-w-[40%]'
                 image={item.image}
                 name={item.name}
               />
               <div className=' flex flex-col gap-4 md:gap-6'>
                 <div className=' flex flex-col gap-2 md:items-start'>
-                  <div className=' flex justify-center gap-6 w-full md:justify-between'>
+                  <div className=' flex justify-center text-center w-full sm:justify-normal'>
                     <Name name={item.name} />
-                    {isCartLoading ? (
-                      <SmallLoader showLoading={false} />
-                    ) : (
-                      <FaWindowClose
-                        className=' text-xl h-full cursor-pointer text-Grey md:text-2xl'
-                        onClick={() => navigate(-1)}
-                      />
-                    )}
+                    {isCartLoading && <SmallLoader showLoading={false} />}
                   </div>
                   <Description description={item.description} />
                   <Ingredients ingredients={item.ingredients} />
                 </div>
-                <div className=' flex flex-wrap justify-center gap-y-3 gap-x-6 md:gap-x-12 md:gap-y-6  md:justify-normal'>
+                <div className=' flex flex-wrap justify-center gap-y-3 gap-x-6 md:gap-x-12 md:gap-y-6 sm:justify-normal'>
                   {item.type === 'veg' ? (
                     <MealStickers
                       title={item.type}
@@ -99,7 +97,7 @@ export default function MealDetails() {
                   />
                 </div>
                 <Price price={item.price} />
-                <div className='flex flex-col  items-start gap-4'>
+                <div className='flex flex-col items-start gap-4 '>
                   <MealCount cartData={cartData} item={item} />
                   <ButtonCart id={item.id} item={item} />
                 </div>
