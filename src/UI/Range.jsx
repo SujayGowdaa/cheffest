@@ -61,6 +61,7 @@ export default function Range() {
             type='range'
             id='price'
             className='price cursor-pointer'
+            label='price'
             name='price'
             min={0}
             max={maxPrice + 20}

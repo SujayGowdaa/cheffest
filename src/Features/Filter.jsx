@@ -76,8 +76,8 @@ export default function Filter() {
         <Range />
         <SortBy
           options={[
-            { value: 'price-asc', label: 'By Price | A-Z' },
-            { value: 'price-desc', label: 'By Price | Z-A' },
+            { value: 'price-asc', label: 'By Price | 0-9' },
+            { value: 'price-desc', label: 'By Price | 9-0' },
           ]}
         />
       </div>
