@@ -9,7 +9,7 @@ export default function Banner() {
           <img src={banner1} alt='banner' />
         </div>
         <div className='w-screen max-w-max absolute blur-sm brightness-[0.75] z-[-10] hidden sm:block'>
-          <img className=' scale-[1.03]' src={banner1} alt='banner' />
+          <img className='w-full scale-[1.03]' src={banner1} alt='banner' />
         </div>
       </div>
     </>
