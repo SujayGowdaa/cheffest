@@ -35,7 +35,7 @@ export const logo =
   'https://yyfjumfmwgnvczjziqao.supabase.co/storage/v1/object/public/logo/cheffest.png?t=2024-01-23T07%3A18%3A53.053Z';
 
 export const banner1 =
-  'https://yyfjumfmwgnvczjziqao.supabase.co/storage/v1/object/public/banners/banner1.jpg?t=2024-01-23T08%3A15%3A21.999Z';
+  'https://yyfjumfmwgnvczjziqao.supabase.co/storage/v1/object/public/banners/banner1.png?t=2024-02-20T08%3A28%3A16.246Z';
 
 export const banner2 =
   'https://yyfjumfmwgnvczjziqao.supabase.co/storage/v1/object/public/banners/banner2.jpg?t=2024-01-23T08%3A15%3A31.686Z';
