@@ -33,7 +33,11 @@ export default function MealItem() {
               >
                 {item.type}
               </div>
-              <img src={item.image} className=' h-full w-full object-cover' />
+              <img
+                src={item.image}
+                alt={item.name}
+                className=' h-full w-full object-cover'
+              />
             </div>
             <div className=' flex flex-auto flex-grow flex-col gap-1 p-2 '>
               <p className=' text-xs font-semibold text-DarkGrey '>
